@@ -12,8 +12,21 @@
   padding: 10px 0;
   font-size: var(--font-size-xxl);
 }
-.task_details_chip {
-  color: var(--primary-color);
+.task_details_chip_open {
+  color: var(--text-color) !important;
+  background: var(--secondary-color) !important;
+}
+.task_details_chip_assign {
+  color: var(--text-color) !important;
+  background: var(--primary-color-light) !important;
+}
+.task_details_chip_complete {
+  color: var(--text-color) !important;
+  background: var(--background-dark) !important;
+}
+.task_details_chip_canceled {
+  color: var(--text-color) !important;
+  background: var(--error-color) !important;
 }
 .task_details_budget_title {
   font-size: 0.99em;
@@ -40,11 +53,17 @@
 }
 #task_details_author_img {
   padding: 5px;
-  width: 80px;
-  height: 80px;
-  background-color: var(--primary-color);
+  width: 70px;
+  height: 70px;
+  background-color: var(--primary-color-light);
   margin: auto;
   text-transform: uppercase;
+}
+.task_details_author_name {
+  text-transform: capitalize;
+  color: var(--primary-color-light);
+  font-size: var(--font-size-small);
+  padding-top: 5px;
 }
 .task_details_post_task_btn {
   border: none;
@@ -58,4 +77,37 @@
 }
 .task_details_post_task_btn:hover {
   background-color: var(--primary-color-light);
+}
+.task_details_location_title {
+  text-transform: capitalize;
+  font-weight: var(--font-weight-regular);
+  margin: 0;
+  color: var(--primary-color);
+}
+.task_details_location {
+  color: var(--primary-color);
+  font-weight: var(--font-weight-bold);
+  text-transform: capitalize;
+}
+.task_details_content_txt {
+  margin-top: 10px;
+}
+.task_details_category {
+  padding-bottom: 10px;
+}
+.task_details_category .task_details_category_title {
+  text-transform: capitalize;
+  font-size: var(--font-size-small);
+  color: var(--primary-color);
+  font-weight: var(--font-weight-500);
+}
+.task_details_category .task_details_category_tags {
+  text-transform: capitalize;
+  font-size: var(--font-size-small);
+  color: var(--text-color);
+  font-weight: var(--font-weight-500);
+  background-color: var(--primary-color-light);
+  border: none;
+  margin: 5px;
+  padding: 2px;
 }

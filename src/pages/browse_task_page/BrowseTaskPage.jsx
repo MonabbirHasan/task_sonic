@@ -61,7 +61,7 @@ const BrowseTaskPage = () => {
                       title={items.task_type}
                       price={`$${items.task_budget}`}
                       location={items.task_location}
-                      flexible={items.is_flexible}
+                      flexible={items.task_flexible_time}
                       date={items.task_date}
                       requested={30}
                       status={items.task_status}

@@ -61,19 +61,17 @@ class TaskController {
   ////////////////////////////
   static create_tasks(req, res) {
     try {
+      console.log(req.body)
       // Task validation schema
       const schema = Joi.object({
         user_id: Joi.string().required().label("User ID"),
-        is_flexible: Joi.boolean().label("Is Flexible"),
         task_type: Joi.string().required().label("Task Type"),
         task_details: Joi.string().label("Task Details"),
         task_budget: Joi.number().min(1).required().label("Task Budget"),
         task_category: Joi.string().label("Task Category"),
         task_date: Joi.string().required().label("Task Date"),
-        task_status: Joi.string()
-          .valid("open", "completed", "in_progress")
-          .required()
-          .label("Task Status"),
+        task_flexible_time: Joi.string().label("Task Flexible Time"),
+        task_status: Joi.string().label("Task Status"),
         task_location: Joi.string()
           .min(5)
           .max(255) // Maximum length for task location
@@ -111,16 +109,13 @@ class TaskController {
       // Task validation schema
       const schema = Joi.object({
         user_id: Joi.string().required().label("User ID"),
-        is_flexible: Joi.boolean().label("Is Flexible"),
         task_type: Joi.string().required().label("Task Type"),
         task_details: Joi.string().label("Task Details"),
         task_budget: Joi.number().min(1).required().label("Task Budget"),
         task_category: Joi.string().label("Task Category"),
         task_date: Joi.string().required().label("Task Date"),
-        task_status: Joi.string()
-          .valid("open", "completed", "in_progress")
-          .required()
-          .label("Task Status"),
+        task_flexible_time: Joi.string().label("Task Flexible Time"),
+        task_status: Joi.string().label("Task Status"),
         task_location: Joi.string()
           .min(5)
           .max(255)

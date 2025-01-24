@@ -1,6 +1,6 @@
 import React from "react";
 import "./task_card.css";
-import { Avatar, Stack } from "@mui/material";
+import { Avatar, Chip, Stack } from "@mui/material";
 const TaskCard = ({
   title,
   price,
@@ -53,20 +53,14 @@ const TaskCard = ({
           <span>{date}</span>
         </Stack>
         <Stack direction="row" spacing={1} alignItems="center">
-          {flexible ? (
-            <>
-              <svg fill="#9BA0BC" height="16" width="16" viewBox="0 0 24 24">
-                <path
-                  fill-rule="evenodd"
-                  d="m16.7 15.3-1.4 1.4-4.3-4.3V7h2v4.6l3.7 3.7Zm-8.6 5.912A9.733 9.733 0 0 0 12 22a9.733 9.733 0 0 0 3.9-.788 10.092 10.092 0 0 0 3.175-2.137c.9-.9 1.612-1.958 2.137-3.175A9.733 9.733 0 0 0 22 12a9.733 9.733 0 0 0-.788-3.9 10.092 10.092 0 0 0-2.137-3.175c-.9-.9-1.958-1.613-3.175-2.138A9.743 9.743 0 0 0 12 2a9.743 9.743 0 0 0-3.9.787 10.105 10.105 0 0 0-3.175 2.138c-.9.9-1.612 1.958-2.137 3.175A9.732 9.732 0 0 0 2 12a9.74 9.74 0 0 0 .788 3.9 10.091 10.091 0 0 0 2.137 3.175c.9.9 1.958 1.612 3.175 2.137Zm9.563-3.549C16.104 19.221 14.217 20 12 20s-4.104-.779-5.662-2.337C4.779 16.104 4 14.217 4 12s.78-4.104 2.338-5.663C7.896 4.779 9.783 4 12 4s4.104.779 5.663 2.337C19.221 7.896 20 9.783 20 12s-.779 4.104-2.337 5.663Z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-              <span>Flexible</span>
-            </>
-          ) : (
-            ""
-          )}
+          <svg fill="#9BA0BC" height="16" width="16" viewBox="0 0 24 24">
+            <path
+              fill-rule="evenodd"
+              d="m16.7 15.3-1.4 1.4-4.3-4.3V7h2v4.6l3.7 3.7Zm-8.6 5.912A9.733 9.733 0 0 0 12 22a9.733 9.733 0 0 0 3.9-.788 10.092 10.092 0 0 0 3.175-2.137c.9-.9 1.612-1.958 2.137-3.175A9.733 9.733 0 0 0 22 12a9.733 9.733 0 0 0-.788-3.9 10.092 10.092 0 0 0-2.137-3.175c-.9-.9-1.958-1.613-3.175-2.138A9.743 9.743 0 0 0 12 2a9.743 9.743 0 0 0-3.9.787 10.105 10.105 0 0 0-3.175 2.138c-.9.9-1.612 1.958-2.137 3.175A9.732 9.732 0 0 0 2 12a9.74 9.74 0 0 0 .788 3.9 10.091 10.091 0 0 0 2.137 3.175c.9.9 1.958 1.612 3.175 2.137Zm9.563-3.549C16.104 19.221 14.217 20 12 20s-4.104-.779-5.662-2.337C4.779 16.104 4 14.217 4 12s.78-4.104 2.338-5.663C7.896 4.779 9.783 4 12 4s4.104.779 5.663 2.337C19.221 7.896 20 9.783 20 12s-.779 4.104-2.337 5.663Z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+          <span>{flexible}</span>
         </Stack>
       </div>
       {/* CARD FOOTER */}
@@ -77,9 +71,23 @@ const TaskCard = ({
           alignItems="center"
         >
           <Stack direction="row" spacing={1}>
-            <span className="task_card_status_badge">{status}</span>
-            <span>|</span>
-            <span>{requested} quota</span>
+            {/* <span className="task_card_status_badge">{status}</span> */}
+            <Chip
+              style={{
+                color: "var(--text-color)",
+                background:
+                  status == "open"
+                    ? "var(--primary-color)"
+                    : status == "assign"
+                    ? "var(--secondary-color)"
+                    : status == "complete"
+                    ? "var(--success-color)"
+                    : "var(--error-color)",
+              }}
+              label={status}
+            />
+            <span></span>
+            <span className="task_card_quoto_badge">{requested} requests</span>
           </Stack>
           {author_img == true ? (
             <Avatar src={author} />
