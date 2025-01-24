@@ -1,0 +1,18 @@
+.option-button {
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  .option-button.selected {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  .error {
+    color: red;
+    font-size: 12px;
+  }
+  

@@ -1,0 +1,48 @@
+#home_banner {
+  background-color: var(--background-color);
+  margin-top: 20px;
+  border-radius: 20px;
+  padding: 40px;
+}
+#home_banner .home_banner_left {
+  padding: var(--spacing-small);
+  transform: translateY(30px);
+  padding: 20px;
+  margin-right: 20px;
+}
+#home_banner .home_banner_left_action {
+  padding: 20px 0;
+}
+#home_banner .home_banner_left_action .home_banner_left_action_btn {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+}
+#home_banner .home_banner_left .home_banner_left_title {
+  font-size: var(--font-size-xxxl);
+  color: var(--primary-color);
+  text-transform: capitalize;
+}
+
+#home_banner .home_banner_left .home_banner_left_subtitle {
+  font-size: var(--font-size-base);
+  color: var(--black);
+  text-transform: capitalize;
+}
+/* home_banner_right */
+.home_banner_right {
+  padding: 30px 0;
+}
+.home_banner_right .home_banner_img {
+  width: 70%;
+  height: auto;
+  object-fit: cover;
+}
+/* HOME BANNER RESPONSIVE */
+@media (max-width: 320px) {
+  #home_banner {
+    padding: 0 !important;
+  }
+  #home_banner .home_banner_left .home_banner_left_title {
+    font-size: var(--font-size-xxl);
+  }
+}

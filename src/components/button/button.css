@@ -1,0 +1,54 @@
+/* Button styles */
+.post-task-btn {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  font-size: var(--font-size-large);
+  font-weight: var(--font-weight-bold);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+  box-shadow: var(--box-shadow-medium);
+  position: relative;
+  overflow: hidden;
+  text-transform: capitalize;
+  /* animation: heartbeat 1.5s infinite; */
+  padding: 0;
+}
+
+/* Heartbeat effect */
+.post-task-btn:hover {
+  animation: heartbeat 1.5s infinite;
+  transform: scale(1.05);
+}
+
+/* Keyframes for heartbeat */
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(1);
+  }
+  70% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Optional: Button hover text shadow */
+.post-task-btn:hover {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+}
+/* BUTTON RESPONSIVE */
+@media (max-width: 320px) {
+  .post-task-btn {
+    padding: 10px !important;
+    font-size: var(--font-size-small);
+  }
+}

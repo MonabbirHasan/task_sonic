@@ -1,0 +1,35 @@
+.post_task_page {
+  padding: 20px 0 60px 0;
+}
+.post_task_form_title {
+  padding: 10px;
+  font-size: var(--font-size-xxl);
+  color: var(----primary-color);
+}
+.post_task_form {
+  padding: 15px;
+  background-color: var(--background-color);
+  box-shadow: var(--box-shadow-medium);
+  border-radius: 10px;
+  border: 3px solid var(--background-color);
+}
+.time_selection {
+  padding: 10px;
+  display: flex;
+  gap: 10px;
+}
+.post_task_form .post_task_form_btn {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  text-transform: capitalize;
+}
+.post_task_form .post_task_form_cardbox {
+  display: inline-block;
+  width: 130px;
+  padding: 10px;
+  cursor: pointer;
+  text-align: center;
+}
+.post_task_form .post_task_form_cardbox:hover {
+  background-color: var(--gray-dark);
+}

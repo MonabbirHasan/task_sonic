@@ -1,0 +1,31 @@
+header {
+  background-color: var(--background-color);
+  box-shadow: var(--box-shadow-medium);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+header a {
+  color: var(--primary-color);
+  text-transform: capitalize;
+  font-weight: var(--font-weight-500) !important;
+  position: relative;
+  transition: 0.5s;
+  font-size: var(--font-size-large) !important;
+  padding: 0 var(--spacing-medium) !important;
+  text-decoration: none;
+}
+header a:hover {
+  border-bottom: 1px solid var(--primary-color);
+  transition: 0.5s;
+}
+header .auth_btn {
+  padding: 5px 15px;
+  background-color: var(--primary-color);
+  border-color: var(--background-color);
+  text-transform: capitalize;
+  font-size: var(--font-size-base);
+}
+header .auth_btn:hover {
+  background-color: var(--primary-color-light);
+}

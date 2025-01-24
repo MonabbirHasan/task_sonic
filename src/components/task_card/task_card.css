@@ -1,0 +1,49 @@
+.task_card {
+  padding: 20px;
+  background-color: var(--background-color);
+  box-shadow: var(--box-shadow-light);
+  margin: 5px;
+  border-radius: 10px;
+  border: 1px solid var(--border-light);
+  cursor: pointer;
+  transition: 0.5s;
+}
+.task_card:hover {
+  background-color: var(--background-color);
+  box-shadow: var(--box-shadow-medium);
+  transform: translateY(-5px);
+}
+.task_card .task_card_title {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-600);
+  text-transform: capitalize;
+}
+.task_card .task_card_price {
+  font-size: var(--font-size-large);
+  font-weight: var(--font-weight-500);
+  color: var(--primary-color);
+}
+.task_card .task_card_list {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.task_card .task_card_list span {
+  color: var(--primary-color);
+  font-size: var(--font-size-base);
+  text-transform: capitalize;
+}
+.task_card .card_footer {
+  padding-top: 10px;
+}
+.task_card .card_footer span {
+  text-transform: capitalize;
+}
+.task_card .card_footer .task_card_status_badge {
+  color: var(--success-color);
+  font-weight: var(--font-weight-500);
+}
+.task_card .card_footer .task_card_author {
+  background-color: var(--primary-color);
+  text-transform: uppercase;
+  font-weight: var(--font-weight-600);
+}

@@ -1,0 +1,65 @@
+/* variables.css */
+
+/* Colors */
+:root {
+  --primary-color: #0f3f0f; /* Main website theme color */
+  --primary-color-light: #343a40; /* Lighter shade of primary */
+  --secondary-color: #007bff; /* Accent color */
+  --text-color: #ffffff; /* White text */
+  --text-secondary-color: #ccc; /* Secondary text */
+  --background-color: #f8f9fa; /* Light background */
+  --background-dark: #121212; /* Dark mode background */
+
+  /* Neutral colors */
+  --black: #000000;
+  --white: #ffffff;
+  --gray-light: #e0e0e0;
+  --gray-dark: #6c757d;
+
+  /* Success, Warning, and Error colors */
+  --success-color: #28a745;
+  --warning-color: #ffc107;
+  --error-color: #dc3545;
+
+  /* Hover States */
+  --primary-hover: #1e1e1e; /* Darker shade for primary hover */
+  --secondary-hover: #0056b3; /* Darker shade for secondary hover */
+}
+
+/* Typography */
+:root {
+  --font-family: "Arial", sans-serif; /* Default font family */
+  --font-size-base: 16px; /* Base font size */
+  --font-size-large: 18px; /* Larger text */
+  --font-size-small: 14px; /* Smaller text */
+  --font-size-xxl: 24px; /*extra large text*/
+  --font-size-xxxl: 44px; /*extra large text*/
+
+  /* Font weights */
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+  --font-weight-500: 500;
+  --font-weight-600: 500;
+  --font-weight-light: 300;
+}
+
+/* Spacing */
+:root {
+  --spacing-small: 8px;
+  --spacing-medium: 16px;
+  --spacing-large: 24px;
+}
+
+/* Borders */
+:root {
+  --border-radius: 5px; /* Default border radius */
+  --border-color: #ddd; /* Default border color */
+  --border-light: #ffffff;
+}
+
+/* Shadows */
+:root {
+  --box-shadow-light: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --box-shadow-medium: 0 4px 8px rgba(0, 0, 0, 0.2);
+  --box-shadow-dark: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
