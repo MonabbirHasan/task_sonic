@@ -1,5 +1,3 @@
-/* variables.css */
-
 /* Colors */
 :root {
   --primary-color: #0f3f0f; /* Main website theme color */
@@ -53,7 +51,7 @@
 /* Borders */
 :root {
   --border-radius: 5px; /* Default border radius */
-  --border-color: #ddd; /* Default border color */
+  --border-color: #131111; /* Default border color */
   --border-light: #ffffff;
 }
 

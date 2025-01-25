@@ -41,118 +41,107 @@ const TaskDetails = ({ taskId, show, handleClose }) => {
     fetch_tasks();
   }, [taskId]);
   return (
-    <div className="task_details">
+    <div className="task-details">
       <Offcanvas
         style={{
           width: 550,
-          backgroundColor: "#f8f9fa",
-          boxShadow: "var(--box-shadow-medium)",
         }}
         placement="end"
         scroll={true}
         show={show}
         onHide={handleClose}
       >
+        {/* Task Details Header */}
         <Stack
           direction="row"
           justifyContent="space-between"
           padding={2}
-          sx={{ background: "var(--primary-color-light)" }}
+          className="task-details__header"
         >
-          <h2 className="task_details_head_title">About</h2>
+          <h2 className="task-details__header-title">About</h2>
           <IconButton onClick={handleClose}>
             <Close htmlColor="var(--text-color)" />
           </IconButton>
         </Stack>
+
         {loader ? (
           <DataLoader height={100} width={100} />
         ) : (
-          <Offcanvas.Body style={{ padding: "20px 30px" }}>
-            <Divider style={{ marginBottom: "20px" }} />
-            {/* TASK STATUS CHIPS */}
-            <Stack direction="row" spacing={2} style={{ marginBottom: "20px" }}>
+          <Offcanvas.Body className="task-details__body">
+            <Divider className="task-details__divider" />
+
+            {/* Task Status Chips */}
+            <div className="task-details__status">
               <Chip
-                className={
-                  SingleTask.task_status == "open"
-                    ? "task_details_chip_open"
+                className={`task-details__status-chip ${
+                  SingleTask.task_status === "open"
+                    ? "task-details__status-chip-open"
                     : ""
-                }
+                }`}
                 label="Open"
               />
               <Chip
-                className={
-                  SingleTask.task_status == "assigned"
-                    ? "task_details_chip_assign"
+                className={`task-details__status-chip ${
+                  SingleTask.task_status === "assigned"
+                    ? "task-details__status-chip--assigned"
                     : ""
-                }
+                }`}
                 label="Assigned"
               />
               <Chip
-                className={
-                  SingleTask.task_status == "completed"
-                    ? "task_details_chip_complete"
+                className={`task-details__status-chip ${
+                  SingleTask.task_status === "completed"
+                    ? "task-details__status-chip--completed"
                     : ""
-                }
+                }`}
                 label="Completed"
               />
               <Chip
-                className={
-                  SingleTask.task_status == "canceled"
-                    ? "task_details_chip_canceled"
+                className={`task-details__status-chip ${
+                  SingleTask.task_status === "canceled"
+                    ? "task-details__status-chip--canceled"
                     : ""
-                }
+                }`}
                 label="Canceled"
               />
-            </Stack>
-            {/* TASK DETAILS */}
-            <Stack
-              direction="row"
-              justifyContent="space-between"
-              alignItems="center"
-              className="task_details_head_card"
-              style={{
-                marginBottom: "30px",
-                padding: "20px",
-                backgroundColor: "var(--background-color)",
-                borderRadius: "10px",
-                boxShadow: "var(--box-shadow-light)",
-              }}
-            >
-              <div>
-                <span className="task_details_budget_title">Task Budget</span>
-                <h2 className="task_details_price">
+            </div>
+
+            {/* Task Details Card */}
+            <div className="task-details__card">
+              <div className="task-details__card-left">
+                <span className="task-details__budget-title">Task Budget</span>
+                <h2 className="task-details__price">
                   ${parseFloat(SingleTask.task_budget)}
                 </h2>
-                <button className="task_details_order_btn">
+                <button className="task-details__offer-btn">
                   Make an Offer
                 </button>
               </div>
-              <div style={{ textAlign: "center" }}>
-                <h5 style={{ color: "#888", fontSize: "0.9rem" }}>Posted by</h5>
-                <Avatar id="task_details_author_img">
-                  {SingleTask?.user_name && SingleTask?.user_name[0]}{" "}
+              <div className="task-details__card-right">
+                <h5 className="task-details_posted-by">Posted by</h5>
+                <Avatar className="task-details__author-avatar">
+                  {SingleTask?.user_name && SingleTask?.user_name[0]}
                 </Avatar>
-                <span className="task_details_author_name">
+                <span className="task-details__author-name">
                   {SingleTask.user_name}
                 </span>
               </div>
-            </Stack>
-            {/* DATE AND DETAILS */}
-            <section className="task_details_title_content">
-              <h3 className="task_details_title">{SingleTask.task_type}</h3>
-              <Divider sx={{ mb: 1 }} />
-              <Stack direction="row" justifyContent="space-between" pb={3}>
+            </div>
+
+            {/* Task Date and Details */}
+            <section className="task-details__info">
+              <h3 className="task-details__title">{SingleTask.task_type}</h3>
+              <Divider className="task-details__divider" />
+              <div className="task-details__date-location">
                 <div>
-                  <p className="task_details_location_title">Location</p>
-                  <span className="task_details_location">
+                  <p className="task-details__location-title">Location</p>
+                  <span className="task-details__location">
                     {SingleTask.task_location}
                   </span>
                 </div>
                 <div>
-                  <p className="task_details_location_title">
-                    To be started on
-                  </p>
-                  <span className="task_details_location">
+                  <p className="task-details__start-title">To be started on</p>
+                  <span className="task-details__start-date">
                     {SingleTask.task_date}
                     <p>{SingleTask.task_flexible_time}</p>
                   </span>
@@ -160,40 +149,37 @@ const TaskDetails = ({ taskId, show, handleClose }) => {
                 <div>
                   <button
                     onClick={() => navigation("/post_task")}
-                    className="task_details_post_task_btn"
+                    className="task-details__post-task-btn"
                   >
-                    post your task
+                    Post your task
                   </button>
                 </div>
-              </Stack>
-              {/* TASK CATEGORY */}
-              <div className="task_details_category">
-                <p className="task_details_category_title">work category</p>
+              </div>
+
+              {/* Task Category Tags */}
+              <div className="task-details__tags">
+                <p className="task-details__tags-title">Work Category</p>
                 {tagsArray?.map((tag, index) => (
                   <Chip
-                    className="task_details_category_tags"
+                    className="task-details__tag"
                     key={index}
                     label={tag.replaceAll("'", "")}
                     variant="outlined"
                   />
                 ))}
               </div>
-              {/* DETAILS CONTENT */}
-              <div className="task_details_content_txt">
-                <h4
-                  style={{
-                    fontWeight: "bold",
-                    color: "var(--primary-color)",
-                    marginBottom: "10px",
-                  }}
-                >
-                  Details
-                </h4>
+
+              {/* Task Details Content */}
+              <div className="task-details__content">
+                <h4 className="task-details__content-title">Details</h4>
                 <Divider />
-                <p style={{ color: "var(--primary-color)", lineHeight: "1.6" }}>
+                <p className="task-details__content-text">
                   {SingleTask.task_details}
                 </p>
               </div>
+
+              {/* Task Details Request */}
+              <Divider className="task-details__divider" />
             </section>
           </Offcanvas.Body>
         )}

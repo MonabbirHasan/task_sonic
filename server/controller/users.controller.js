@@ -1,6 +1,8 @@
 const UserModel = require("../models/users.model");
-const Joi = require("joi");
 const { v4: uuidv4 } = require("uuid");
+const Joi = require("joi");
+const { OAuth2Client } = require("google-auth-library");
+const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 class UserController {
   /////////////////////////
   // ALL USER CONTROLLER
@@ -93,7 +95,33 @@ class UserController {
   /////////////////////////
   // LOGIN USER CONTROLLER
   /////////////////////////
-  static login_users(req, res) {}
+  static async login_users(req, res) {
+    const { token } = req.body;
+
+    try {
+      // Verify token using Google API
+      const ticket = await client.verifyIdToken({
+        idToken: token,
+        audience: process.env.GOOGLE_CLIENT_ID,
+      });
+      // Get user profile information from token
+      const payload = ticket.getPayload();
+      console.log("User Info:", payload);
+
+      // Send user info to frontend
+      res.status(200).json({
+        message: "Login successful",
+        user: {
+          email: payload.email,
+          name: payload.name,
+          picture: payload.picture,
+        },
+      });
+    } catch (error) {
+      console.error("Error verifying token:", error);
+      return res.status(401).json({ error: "Invalid token" });
+    }
+  }
   /////////////////////////
   // UPDATE USER CONTROLLER
   /////////////////////////

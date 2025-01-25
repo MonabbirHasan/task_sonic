@@ -61,7 +61,6 @@ class TaskController {
   ////////////////////////////
   static create_tasks(req, res) {
     try {
-      console.log(req.body)
       // Task validation schema
       const schema = Joi.object({
         user_id: Joi.string().required().label("User ID"),

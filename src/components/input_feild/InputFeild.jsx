@@ -1,4 +1,4 @@
-import { FormControl } from "@mui/material";
+import { FormControl, TextField } from "@mui/material";
 import React from "react";
 import { Form } from "react-bootstrap";
 
@@ -18,15 +18,20 @@ const InputFeild = ({
     <div>
       <FormControl fullWidth={fullWidth} sx={{ marginTop: 5 }}>
         <Form.Label>{label}</Form.Label>
-        <Form.Control
+        <TextField
           onChange={onChange}
           value={value}
           className={className}
           type={type}
           placeholder={placeholder}
-          as={as}
-          rows={rows}
+          // as={as}
+          // rows={rows}
+          variant="filled"
+          size="small"
         />
+        {/* <Form.Control
+        
+        /> */}
         <span className="text-danger text-capitalize">{error}</span>
       </FormControl>
     </div>

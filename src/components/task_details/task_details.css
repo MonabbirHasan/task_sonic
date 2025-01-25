@@ -1,44 +1,93 @@
-.task_details_body {
+.task-details__body {
   padding: 20px;
 }
-.task_details_head_title {
+/* TASK DETAILS HEDER */
+.task-details__header {
+  background: var(--primary-color-light);
+}
+
+.task-details__header-title {
   color: var(--text-color);
   font-weight: var(--font-weight-600);
 }
-.task_details_title {
-  color: var(--primary-color);
-  font-weight: var(--font-weight-600);
-  text-transform: capitalize;
+
+/* TASK DETAILS TASK STATUS CHIP */
+.task-details__status {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
   padding: 10px 0;
-  font-size: var(--font-size-xxl);
 }
-.task_details_chip_open {
-  color: var(--text-color) !important;
-  background: var(--secondary-color) !important;
+
+.task-details__status-chip.task-details__status-chip-open {
+  background: var(--primary-color);
+  color: var(--text-color);
 }
-.task_details_chip_assign {
-  color: var(--text-color) !important;
-  background: var(--primary-color-light) !important;
+.task-details__status-chip.task-details__status-chip-assigned {
+  background: var(--primary-color-light);
+  color: var(--text-color);
 }
-.task_details_chip_complete {
-  color: var(--text-color) !important;
-  background: var(--background-dark) !important;
+.task-details__status-chip.task-details__status-chip-completed {
+  background: var(--background-dark);
+  color: var(--text-color);
 }
-.task_details_chip_canceled {
-  color: var(--text-color) !important;
-  background: var(--error-color) !important;
+.task-details__status-chip.task-details__status-chip-canceled {
+  background: var(--error-color);
+  color: var(--text-color);
 }
-.task_details_budget_title {
+/* TASK DETAILS CARD */
+.task-details__card {
+  background-color: var(--background-color);
+  box-shadow: var(--box-shadow-medium);
+  border: 1px solid var(--text-color);
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  display: flex;
+  padding: 20px;
+}
+/* TASK DETAILS CARD RIGHT */
+.task-details__card .task-details__card-right {
+  padding: 10px;
+}
+.task-details__card-right .task-details_posted-by {
+  text-transform: capitalize;
+  font-size: var(--font-size-small);
+  color: var(--primary-color);
+  text-align: center;
+}
+.task-details__card-right .task-details__author-avatar {
+  padding: 5px;
+  width: 70px;
+  height: 70px;
+  background-color: var(--primary-color-light);
+  margin: auto;
+  text-transform: uppercase;
+}
+.task-details__card-right .task-details__author-name {
+  text-transform: capitalize;
+  color: var(--primary-color-light);
+  font-size: var(--font-size-small);
+  padding-top: 5px;
+}
+/* TASK DETAILS CARD LEFT */
+.task-details__card .task-details__card-left {
+  padding: 10px;
+}
+.task-details__card-left .task-details__budget-title {
   font-size: 0.99em;
   color: var(--primary-color);
   font-weight: var(--font-weight-500);
 }
-.task_details_price {
+
+.task-details__card-left .task-details__price {
   font-weight: var(--font-weight-bold);
   color: var(--primary-color);
   margin: 10px 0;
 }
-.task_details_order_btn {
+
+.task-details__card-left .task-details__offer-btn {
   border: none;
   background-color: var(--primary-color);
   border-color: var(--primary-color);
@@ -48,24 +97,54 @@
   color: var(--text-color);
   text-transform: capitalize;
 }
-.task_details_order_btn:hover {
+.task-details__card-left .task-details__offer-btn:hover {
   background-color: var(--primary-color-light);
 }
-#task_details_author_img {
-  padding: 5px;
-  width: 70px;
-  height: 70px;
-  background-color: var(--primary-color-light);
-  margin: auto;
-  text-transform: uppercase;
+/* TASK DETAILS IFORMATION */
+.task-details__info {
+  margin-top: 20px;
 }
-.task_details_author_name {
+
+.task-details__info .task-details__title {
+  color: var(--primary-color);
+  font-weight: var(--font-weight-600);
   text-transform: capitalize;
-  color: var(--primary-color-light);
-  font-size: var(--font-size-small);
-  padding-top: 5px;
+  padding: 10px 0;
+  font-size: var(--font-size-xxl);
 }
-.task_details_post_task_btn {
+.task-details__info .task-details__date-location {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+  padding-top: 10px;
+}
+.task-details__info .task-details__location-title {
+  text-transform: capitalize;
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-small);
+  color: var(--primary-color);
+  margin: 0;
+}
+.task-details__info .task-details__location {
+  color: var(--primary-color);
+  font-weight: var(--font-weight-bold);
+  text-transform: capitalize;
+  font-size: var(--font-size-small);
+}
+.task-details__info .task-details__start-title {
+  text-transform: capitalize;
+  font-weight: var(--font-weight-regular);
+  margin: 0;
+  color: var(--primary-color);
+  font-size: var(--font-size-small);
+}
+.task-details__info .task-details__start-date {
+  color: var(--primary-color);
+  font-weight: var(--font-weight-bold);
+  text-transform: capitalize;
+  font-size: var(--font-size-small);
+}
+.task-details__info .task-details__post-task-btn {
   border: none;
   background-color: var(--primary-color);
   border-color: var(--primary-color);
@@ -75,33 +154,20 @@
   color: var(--text-color);
   text-transform: capitalize;
 }
-.task_details_post_task_btn:hover {
+.task-details__info .task-details__post-task-btn:hover {
   background-color: var(--primary-color-light);
 }
-.task_details_location_title {
-  text-transform: capitalize;
-  font-weight: var(--font-weight-regular);
-  margin: 0;
-  color: var(--primary-color);
+/* TASK DETAILS TAGS */
+.task-details__tags {
+  padding: 0;
 }
-.task_details_location {
-  color: var(--primary-color);
-  font-weight: var(--font-weight-bold);
-  text-transform: capitalize;
-}
-.task_details_content_txt {
-  margin-top: 10px;
-}
-.task_details_category {
-  padding-bottom: 10px;
-}
-.task_details_category .task_details_category_title {
+.task-details__tags .task-details__tags-title {
   text-transform: capitalize;
   font-size: var(--font-size-small);
   color: var(--primary-color);
   font-weight: var(--font-weight-500);
 }
-.task_details_category .task_details_category_tags {
+.task-details__tags .task-details__tag {
   text-transform: capitalize;
   font-size: var(--font-size-small);
   color: var(--text-color);
@@ -110,4 +176,51 @@
   border: none;
   margin: 5px;
   padding: 2px;
+}
+/* TASK DETAILS CONTENT */
+.task-details__content {
+  margin-top: 10px;
+}
+.task-details__content .task-details__content-title {
+  color: var(--primary-color);
+  font-weight: var(--font-weight-600);
+  text-transform: capitalize;
+  padding: 10px 0;
+  font-size: var(--font-size-xxl);
+}
+.task-details__content .task-details__content-text {
+  text-transform: capitalize;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-600);
+  color: var(--primary-color);
+  padding-top: 10px;
+}
+
+/* TASK DETAILS RESPONSIVE */
+@media (max-width: 320px) {
+  /* TASK DETAILS TASK AUTHOR */
+  .task-details__card-right .task-details__author-avatar {
+    width: 40px;
+    height: 40px;
+  }
+  /* TASK DETAILS DATE TIME WRAPPER */
+  .task-details__info .task-details__date-location {
+    display: grid;
+    gap: 5px;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  /* TASK DETAILS STATUS CHIP */
+  .task-details__status {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  /* TASK DETAILS HEAD CARD */
+  .task_details_head_card {
+    margin: 10px 0;
+  }
+  .task-details__card-left .task-details__offer-btn {
+    padding: 8px;
+    font-size: var(--font-size-small);
+    font-weight: 100;
+  }
 }

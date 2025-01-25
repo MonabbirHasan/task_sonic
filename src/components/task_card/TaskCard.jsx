@@ -19,7 +19,7 @@ const TaskCard = ({
       <div className="task_card_head">
         <Stack direction="row" justifyContent="space-between">
           <p className="task_card_title">{title}</p>
-          <span className="task_card_price">{price}</span>
+          <p className="task_card_price">{price}</p>
         </Stack>
       </div>
       {/* CARD BODY */}
@@ -40,7 +40,7 @@ const TaskCard = ({
               <path d="M2 20v-3h2V6c0-.55.196-1.02.588-1.412A1.923 1.923 0 0 1 6 4h15v2H6v11h6v3H2Zm13 0a.965.965 0 0 1-.712-.288A.965.965 0 0 1 14 19V9c0-.283.096-.521.288-.713A.967.967 0 0 1 15 8h6a.97.97 0 0 1 .712.287c.192.192.288.43.288.713v10c0 .283-.096.52-.288.712A.965.965 0 0 1 21 20h-6Zm1-3h4v-7h-4v7Z"></path>
             </g>
           </svg>
-          <span>{location}</span>
+          <span className="task_card_list_item">{location}</span>
         </Stack>
         <Stack direction="row" spacing={1} alignItems="center">
           <svg fill="#9BA0BC" height="16" width="16" viewBox="0 0 24 24">
@@ -50,7 +50,7 @@ const TaskCard = ({
               clip-rule="evenodd"
             ></path>
           </svg>
-          <span>{date}</span>
+          <span className="task_card_list_item">{date}</span>
         </Stack>
         <Stack direction="row" spacing={1} alignItems="center">
           <svg fill="#9BA0BC" height="16" width="16" viewBox="0 0 24 24">
@@ -60,7 +60,7 @@ const TaskCard = ({
               clip-rule="evenodd"
             ></path>
           </svg>
-          <span>{flexible}</span>
+          <span className="task_card_list_item">{flexible}</span>
         </Stack>
       </div>
       {/* CARD FOOTER */}
@@ -70,8 +70,7 @@ const TaskCard = ({
           justifyContent="space-between"
           alignItems="center"
         >
-          <Stack direction="row" spacing={1}>
-            {/* <span className="task_card_status_badge">{status}</span> */}
+          <Stack direction="row" spacing={1} mt={2} alignItems="center">
             <Chip
               style={{
                 color: "var(--text-color)",

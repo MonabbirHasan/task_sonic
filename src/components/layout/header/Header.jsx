@@ -26,10 +26,17 @@ const Header = () => {
               <NavLink to="/tasks">browse task</NavLink>
               <Nav.Link href="/#home_task_steps">how it work</Nav.Link>
             </Nav>
-            <Form className="d-flex gap-3">
-              <button className="auth_btn">Login</button>
-              <button className="auth_btn">Sing up</button>
-            </Form>
+            <div className="d-flex gap-3">
+              <button className="auth_btn" onClick={() => navigation("/login")}>
+                Login
+              </button>
+              <button
+                className="auth_btn"
+                onClick={() => navigation("/register")}
+              >
+                Sing up
+              </button>
+            </div>
           </Navbar.Collapse>
         </Container>
       </Navbar>

@@ -1,4 +1,4 @@
-.post_task_page {
+.post-task__page {
   padding: 20px 0 60px 0;
 }
 .post_task_form_title {
@@ -13,7 +13,8 @@
   border-radius: 10px;
   border: 3px solid var(--background-color);
 }
-.time_selection {
+/* .task_form_date_wrapper */
+.task_form_date_wrapper {
   padding: 10px;
   display: flex;
   gap: 10px;
@@ -23,13 +24,40 @@
   color: var(--text-color);
   text-transform: capitalize;
 }
+/* POST FORM LOCATION CARD */
+.post_task_form_cardbox_wrapper {
+  display: flex;
+  gap: 10px;
+}
 .post_task_form .post_task_form_cardbox {
   display: inline-block;
-  width: 130px;
-  padding: 10px;
   cursor: pointer;
   text-align: center;
+  background-color: var(--text-secondary-color);
+  box-shadow: var(--box-shadow-medium);
+  border: 1px solid var(--background-color);
+  padding: 20px;
+  border-radius: 10px;
 }
 .post_task_form .post_task_form_cardbox:hover {
-  background-color: var(--gray-dark);
+  background-color: var(--text-color);
+}
+.post_task_form_cardbox .post_task_form_cardbox_title {
+  text-transform: capitalize;
+  font-size: var(--font-size-large);
+  color: var(--primary-color);
+}
+.post_task_form_cardbox .post_task_form_cardbox_subtitle {
+  text-transform: capitalize;
+  font-size: var(--font-size-small);
+  color: var(--primary-color);
+  margin: 0;
+}
+/* TASK DETAILS RESPONSIVE */
+@media (max-width: 320px) {
+  .task_form_date_wrapper .task_form_date_btn {
+    padding: 5px;
+    font-size: var(--font-size-small);
+    width: 100px;
+  }
 }

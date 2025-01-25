@@ -10,12 +10,11 @@ header .header_brand {
 }
 header a {
   font-weight: var(--font-weight-500) !important;
-  font-size: var(--font-size-large) !important;
+  font-size: var(--font-size-base) !important;
   padding: 0 var(--spacing-medium) !important;
   color: var(--primary-color) !important;
   text-transform: capitalize;
   text-decoration: none;
-  position: relative;
   transition: 0.5s;
 }
 header a:hover {
