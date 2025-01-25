@@ -1,4 +1,4 @@
-import React, { lazy, useEffect, useState } from "react";
+import React, { lazy, useContext, useEffect, useState } from "react";
 import "./browse_task_page.css";
 const Layout = lazy(() => import("../../components/layout/Layout"));
 import TaskDetails from "../../components/task_details/TaskDetails";
@@ -6,13 +6,15 @@ import DataLoader from "../../components/loader/DataLoader";
 import TaskCard from "../../components/task_card/TaskCard";
 import { Col, Container, Row } from "react-bootstrap";
 import ApiClient from "../../services/ApiClient";
+import { AuthContext } from "../../context/AuthProvider";
 const BrowseTaskPage = () => {
+  const { authUser } = useContext(AuthContext);
   const [AllTask, setAllTask] = useState([]);
   const [TaskDetailsSidebar, setTaskDetailsSidebar] = useState(false);
-  const handleShowSidebar = () => setTaskDetailsSidebar(true);
   const handleCloseSidebar = () => setTaskDetailsSidebar(false);
-  const [TaskId, setTaskId] = useState("");
+  const handleShowSidebar = () => setTaskDetailsSidebar(true);
   const [loader, setLoader] = useState(false);
+  const [TaskId, setTaskId] = useState("");
   //////////////////////////
   // INITIALIZE CLIENT API
   //////////////////////////
@@ -37,6 +39,7 @@ const BrowseTaskPage = () => {
   };
   useEffect(() => {
     fetch_tasks();
+    
   }, []);
   //////////////////////
   // RENDER ALL JSX
@@ -48,7 +51,7 @@ const BrowseTaskPage = () => {
           {loader ? (
             <DataLoader height={100} width={100} />
           ) : (
-            //   {/* SHOW ALL TASK SECTION START  */}
+            // SHOW ALL TASK SECTION START
             <section id="browse_task">
               <Row lg={3}>
                 {AllTask.map((items, index) => (
@@ -65,10 +68,9 @@ const BrowseTaskPage = () => {
                       date={items.task_date}
                       requested={30}
                       status={items.task_status}
-                      author_img={true}
-                      author={
-                        "https://photoheads.co.uk/wp-content/uploads/2020/05/headshot-with-client-testimonial.jpg"
-                      }
+                      author_img={items?.user_id==authUser?.id?true:false}
+                      author={items?.user_id==authUser?.id?authUser?.picture:""}
+                      author_name={items?.user_id==authUser?.id?authUser?.name:"unknown"}
                     />
                   </Col>
                 ))}

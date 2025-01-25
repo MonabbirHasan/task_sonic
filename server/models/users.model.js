@@ -21,6 +21,20 @@ class UserModel {
       }
     });
   }
+  ///////////////////////////
+  //FIND USER BY EMAIL MODEL
+  ///////////////////////////
+  static find_user_by_email_model(email, callback) {
+    const sql = "SELECT * FROM users WHERE user_email=?";
+    db.query(sql, [email], (err, result) => {
+      if (err) {
+        callback(err, null);
+      } else {
+        const data = result[0];
+        callback(null, data);
+      }
+    });
+  }
   /////////////////////////
   // CREATE USER MODEL
   /////////////////////////

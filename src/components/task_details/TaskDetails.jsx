@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Avatar, Chip, Divider, IconButton, Stack } from "@mui/material";
 import ApiClient from "../../services/ApiClient";
 import { useNavigate } from "react-router-dom";
@@ -6,7 +6,9 @@ import DataLoader from "../loader/DataLoader";
 import { Close } from "@mui/icons-material";
 import { Offcanvas } from "react-bootstrap";
 import "./task_details.css";
+import { AuthContext } from "../../context/AuthProvider";
 const TaskDetails = ({ taskId, show, handleClose }) => {
+  const { authUser } = useContext(AuthContext);
   const navigation = useNavigate();
   const [SingleTask, setSingleTask] = useState({});
   const [loader, setLoader] = useState(false);
@@ -56,9 +58,9 @@ const TaskDetails = ({ taskId, show, handleClose }) => {
           direction="row"
           justifyContent="space-between"
           padding={2}
-          className="task-details__header"
+          className="task-details_header"
         >
-          <h2 className="task-details__header-title">About</h2>
+          <h2 className="task-details_header-title">About</h2>
           <IconButton onClick={handleClose}>
             <Close htmlColor="var(--text-color)" />
           </IconButton>
@@ -67,39 +69,39 @@ const TaskDetails = ({ taskId, show, handleClose }) => {
         {loader ? (
           <DataLoader height={100} width={100} />
         ) : (
-          <Offcanvas.Body className="task-details__body">
-            <Divider className="task-details__divider" />
+          <Offcanvas.Body className="task-details_body">
+            <Divider className="task-details_divider" />
 
             {/* Task Status Chips */}
-            <div className="task-details__status">
+            <div className="task-details_status">
               <Chip
-                className={`task-details__status-chip ${
+                className={`task-details_status-chip ${
                   SingleTask.task_status === "open"
-                    ? "task-details__status-chip-open"
+                    ? "task-details_status-chip-open"
                     : ""
                 }`}
                 label="Open"
               />
               <Chip
-                className={`task-details__status-chip ${
+                className={`task-details_status-chip ${
                   SingleTask.task_status === "assigned"
-                    ? "task-details__status-chip--assigned"
+                    ? "task-details_status-chip--assigned"
                     : ""
                 }`}
                 label="Assigned"
               />
               <Chip
-                className={`task-details__status-chip ${
+                className={`task-details_status-chip ${
                   SingleTask.task_status === "completed"
-                    ? "task-details__status-chip--completed"
+                    ? "task-details_status-chip--completed"
                     : ""
                 }`}
                 label="Completed"
               />
               <Chip
-                className={`task-details__status-chip ${
+                className={`task-details_status-chip ${
                   SingleTask.task_status === "canceled"
-                    ? "task-details__status-chip--canceled"
+                    ? "task-details_status-chip--canceled"
                     : ""
                 }`}
                 label="Canceled"
@@ -107,41 +109,58 @@ const TaskDetails = ({ taskId, show, handleClose }) => {
             </div>
 
             {/* Task Details Card */}
-            <div className="task-details__card">
-              <div className="task-details__card-left">
-                <span className="task-details__budget-title">Task Budget</span>
-                <h2 className="task-details__price">
+            <div className="task-details_card">
+              {/* task details card left */}
+              <div className="task-details_card-left">
+                <span className="task-details_budget-title">Task Budget</span>
+                <h2 className="task-details_price">
                   ${parseFloat(SingleTask.task_budget)}
                 </h2>
-                <button className="task-details__offer-btn">
+                <button className="task-details_offer-btn">
                   Make an Offer
                 </button>
               </div>
-              <div className="task-details__card-right">
+              {/* task details card right */}
+              <div className="task-details_card-right">
                 <h5 className="task-details_posted-by">Posted by</h5>
-                <Avatar className="task-details__author-avatar">
+                {SingleTask?.user_id == authUser?.id ? (
+                  <Avatar
+                    style={{ width: "100%", height: "auto" }}
+                    src={
+                      SingleTask?.user_id == authUser?.id
+                        ? authUser?.picture
+                        : ""
+                    }
+                  />
+                ) : (
+                  <Avatar className="task-details_author-avatar">
+                    {SingleTask?.user_name && SingleTask?.user_name[0]}
+                  </Avatar>
+                )}
+                {/* <Avatar className="task-details_author-avatar">
+                  {SingleTask?.user_id == authUser?.id ? authUser?.picture : ""}
                   {SingleTask?.user_name && SingleTask?.user_name[0]}
-                </Avatar>
-                <span className="task-details__author-name">
+                </Avatar> */}
+                <span className="task-details_author-name">
                   {SingleTask.user_name}
                 </span>
               </div>
             </div>
 
             {/* Task Date and Details */}
-            <section className="task-details__info">
-              <h3 className="task-details__title">{SingleTask.task_type}</h3>
-              <Divider className="task-details__divider" />
-              <div className="task-details__date-location">
+            <section className="task-details_info">
+              <h3 className="task-details_title">{SingleTask.task_type}</h3>
+              <Divider className="task-details_divider" />
+              <div className="task-details_date-location">
                 <div>
-                  <p className="task-details__location-title">Location</p>
-                  <span className="task-details__location">
+                  <p className="task-details_location-title">Location</p>
+                  <span className="task-details_location">
                     {SingleTask.task_location}
                   </span>
                 </div>
                 <div>
-                  <p className="task-details__start-title">To be started on</p>
-                  <span className="task-details__start-date">
+                  <p className="task-details_start-title">To be started on</p>
+                  <span className="task-details_start-date">
                     {SingleTask.task_date}
                     <p>{SingleTask.task_flexible_time}</p>
                   </span>
@@ -149,7 +168,7 @@ const TaskDetails = ({ taskId, show, handleClose }) => {
                 <div>
                   <button
                     onClick={() => navigation("/post_task")}
-                    className="task-details__post-task-btn"
+                    className="task-details_post-task-btn"
                   >
                     Post your task
                   </button>
@@ -157,11 +176,11 @@ const TaskDetails = ({ taskId, show, handleClose }) => {
               </div>
 
               {/* Task Category Tags */}
-              <div className="task-details__tags">
-                <p className="task-details__tags-title">Work Category</p>
+              <div className="task-details_tags">
+                <p className="task-details_tags-title">Work Category</p>
                 {tagsArray?.map((tag, index) => (
                   <Chip
-                    className="task-details__tag"
+                    className="task-details_tag"
                     key={index}
                     label={tag.replaceAll("'", "")}
                     variant="outlined"
@@ -170,16 +189,16 @@ const TaskDetails = ({ taskId, show, handleClose }) => {
               </div>
 
               {/* Task Details Content */}
-              <div className="task-details__content">
-                <h4 className="task-details__content-title">Details</h4>
+              <div className="task-details_content">
+                <h4 className="task-details_content-title">Details</h4>
                 <Divider />
-                <p className="task-details__content-text">
+                <p className="task-details_content-text">
                   {SingleTask.task_details}
                 </p>
               </div>
 
               {/* Task Details Request */}
-              <Divider className="task-details__divider" />
+              <Divider className="task-details_divider" />
             </section>
           </Offcanvas.Body>
         )}

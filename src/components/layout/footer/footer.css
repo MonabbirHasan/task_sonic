@@ -1,8 +1,8 @@
 .footer {
   background-color: var(--background-color);
   padding: 40px 20px;
-  font-family: Arial, sans-serif;
   color: var(--primary-color);
+  border-top: 2px solid var(--primary-color);
 }
 
 .footer_container {
@@ -16,7 +16,7 @@
   flex: 1;
   min-width: 200px;
 }
-
+/* FOOTER LOGO STYLE */
 .footer_logo {
   display: flex;
   align-items: center;
@@ -26,29 +26,18 @@
   text-transform: capitalize;
   color: var(--primary-color);
   font-weight: var(--font-weight-bold);
+  border-bottom: 3px solid var(--primary-color);
 }
-.logo_icon {
-  width: 100px;
-  height: 100px;
-  margin-right: 10px;
-}
-
-.logo_text {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: var(--primary-color);
-}
-
 .footer_description {
   font-size: 0.9rem;
   line-height: 1.5;
   color: var(--primary-color);
 }
-
+/* FOOTER TITLE STYLE */
 .footer_column h3 {
   font-size: var(--font-size-large);
-  margin-bottom: 10px;
   color: var(--primary-color);
+  margin-bottom: 10px;
 }
 
 .footer_column ul {
@@ -62,20 +51,20 @@
 
 .footer_column ul li a {
   text-decoration: none;
-  color: #555;
+  color: var(--gray-dark);
   font-size: 0.9rem;
 }
 .footer_column ul li a:hover {
   color: var(--primary-color);
   text-decoration: underline;
 }
-
+/* FOOTER BOTTOM ILAND */
 .footer_bottom {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 20px;
-  border-top: 1px solid var(--primary-color);
+  border-top: 1px solid var(--gray-light);
   padding-top: 10px;
   font-size: 0.85rem;
 }

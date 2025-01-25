@@ -20,9 +20,11 @@
   transition: 0.5s ease-in-out;
   border-radius: 10px;
   cursor: pointer;
+  border: 1px solid var(--text-color);
 }
 #home_task_steps .steps_item:hover {
-  background-color: var(--gray-light);
+  background-color: var(--background-color);
+  box-shadow: var(--box-shadow-medium);
 }
 #home_task_steps .steps_item .steps_item_icon {
   text-align: center;

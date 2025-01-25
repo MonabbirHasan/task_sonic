@@ -1,4 +1,4 @@
-import React, { lazy, useState } from "react";
+import React, { lazy, useContext, useEffect, useState } from "react";
 import "./post_task_page.css";
 import {
   Autocomplete,
@@ -12,13 +12,23 @@ import {
 const Layout = lazy(() => import("../../components/layout/Layout"));
 import InputFeild from "../../components/input_feild/InputFeild";
 import { service_category } from "../../utils/service_category";
-import { Map, MobileFriendly } from "@mui/icons-material";
+import {
+  ArrowRight,
+  ArrowRightAlt,
+  Map,
+  MobileFriendly,
+} from "@mui/icons-material";
 import { Container, Form } from "react-bootstrap";
 import ApiClient from "../../services/ApiClient";
 import DatePicker from "react-datepicker";
 import { toast } from "react-toastify";
 import { debounce } from "lodash";
+import { AuthContext } from "../../context/AuthProvider";
+import { useNavigate } from "react-router-dom";
 const PostTaskPage = () => {
+  const { isAuthenticated, authUser } = useContext(AuthContext);
+  const navigation = useNavigate();
+
   const [TaskType, setTaskType] = useState();
   const [TaskDate, setTaskDate] = useState(null);
   const [TaskFlexible, setTaskFlexible] = useState("");
@@ -111,7 +121,6 @@ const PostTaskPage = () => {
     setTaskType("");
     setTaskLocation("");
   };
-
   ///////////////////////////////
   // HANDLE CREATE TASK
   //////////////////////////////
@@ -120,7 +129,7 @@ const PostTaskPage = () => {
       if (!validate()) {
         setLoader(true);
         const data = {
-          user_id: "eec05585-bb31-48c7-8464-95cdc1e7b8d4",
+          user_id: authUser?.id,
           task_type: TaskType,
           task_details: TaskDetails,
           task_budget: TaskBudget,
@@ -143,12 +152,10 @@ const PostTaskPage = () => {
       console.log(error);
     }
   };
-
   ///////////////////////////////////
   //  CREATE TASK DEBOUNCE HANDLER
   ///////////////////////////////////
   const debouncedClick = debounce(create_task, 1000);
-
   ///////////////////////////////
   // RENDER ALL JSX HERE
   //////////////////////////////
@@ -159,7 +166,16 @@ const PostTaskPage = () => {
           <div className="post-task__page_wrapper">
             <div className="post_task_form">
               <h2 className="post_task_form_title">Create a Task</h2>
-
+              {/* check is logged in or not */}
+              {!isAuthenticated && (
+                <Button
+                  onClick={() => navigation("/login")}
+                  variant=""
+                  className="post_task_form_btn bg-secondary"
+                >
+                  before create task please <ArrowRightAlt /> Login
+                </Button>
+              )}
               {/* task type input */}
               <InputFeild
                 fullWidth={true}
@@ -363,14 +379,24 @@ const PostTaskPage = () => {
 
               {/* task submit button */}
               <FormControl sx={{ paddingTop: 2 }}>
-                <Button
-                  disabled={loader}
-                  onClick={debouncedClick}
-                  variant=""
-                  className="post_task_form_btn"
-                >
-                  {loader ? "Submiting..." : "submit task"}
-                </Button>
+                {isAuthenticated ? (
+                  <Button
+                    disabled={loader}
+                    onClick={debouncedClick}
+                    variant=""
+                    className="post_task_form_btn"
+                  >
+                    {loader ? "Submiting..." : "submit task"}
+                  </Button>
+                ) : (
+                  <Button
+                    onClick={() => navigation("/login")}
+                    variant=""
+                    className="post_task_form_btn bg-secondary"
+                  >
+                    before create task please <ArrowRightAlt /> Login
+                  </Button>
+                )}
               </FormControl>
             </div>
           </div>

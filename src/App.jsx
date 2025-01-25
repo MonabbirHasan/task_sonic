@@ -7,7 +7,7 @@ import {
 } from "./pages/pages";
 import "react-datepicker/dist/react-datepicker.css";
 import { ThreeDots } from "react-loader-spinner";
-import { Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "slick-carousel/slick/slick-theme.css";
 import "react-multi-carousel/lib/styles.css";
@@ -23,12 +23,14 @@ function App() {
         </div>
       )}
     >
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/post_task" element={<PostTaskPage />} />
-        <Route path="/tasks" element={<BrowseTaskPage />} />
-        <Route path="/login" element={<LoginPage />} />
-      </Routes>
+      <Router>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/post_task" element={<PostTaskPage />} />
+          <Route path="/tasks" element={<BrowseTaskPage />} />
+          <Route path="/login" element={<LoginPage />} />
+        </Routes>
+      </Router>
     </Suspense>
   );
 }

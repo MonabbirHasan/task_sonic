@@ -1,18 +1,20 @@
 import React from "react";
-import "./post_first_task.css";
-import { Col, Row } from "react-bootstrap";
-import Button from "../button/Button";
-import { Avatar, Stack } from "@mui/material";
+import "./service_slider.css";
 import { category_data } from "../../utils/category_data";
 import { useNavigate } from "react-router-dom";
-const PostFirstTask = () => {
+import { Avatar, Stack } from "@mui/material";
+import { Col, Row } from "react-bootstrap";
+import Button from "../button/Button";
+
+const ServiceSlider = () => {
   const navigtion = useNavigate();
+  
   return (
-    <section id="home_post_first_task">
+    <section id="service_slider">
       <Row className="align-items-center">
         {/* Left Content */}
         <Col xs={12} md={5} lg={4} className="text-center text-md-start">
-          <div className="home_post_first_task_left">
+          <div className="service_slider_left">
             <h1>Get started with your first task now</h1>
             <p>Get more done in less time with task completion made simple</p>
             <Button
@@ -25,8 +27,8 @@ const PostFirstTask = () => {
 
         {/* Right Content */}
         <Col xs={12} md={7} lg={8}>
-          <div className="home_post_first_task_right">
-            <div className="task_image_slide_wrapper">
+          <div className="service_slider_right">
+            <div className="service_slider_img_wrapper">
               {/* Left slider */}
               <div className="image_slider left">
                 {category_data.map((items, index) => (
@@ -64,4 +66,4 @@ const PostFirstTask = () => {
   );
 };
 
-export default PostFirstTask;
+export default ServiceSlider;

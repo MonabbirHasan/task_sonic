@@ -88,9 +88,26 @@
   font-size: var(--font-size-small);
 }
 .task_card .card_footer .task_card_author {
-  background-color: var(--primary-color);
+  background-color: var(--gray-dark);
   text-transform: uppercase;
   font-weight: var(--font-weight-600);
+  color: var(--primary-color);
+}
+.task_card .card_footer .task_card_author:hover {
+  box-shadow: var(--box-shadow-dark);
+  background-color: var(--background-color);
+}
+/* TASK CARD AUTHOR TOOLTIP */
+.tooltip .tooltip-inner {
+  background-color: var(--gray-dark) !important;
+  color: var(--text-color) !important;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 14px;
+  text-transform: capitalize;
+}
+.tooltip-arrow::before {
+  display: none;
 }
 
 /* TASK CARD RESPONSIVE */

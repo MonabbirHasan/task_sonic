@@ -1,11 +1,11 @@
 import React, { lazy } from "react";
-import { Col, Container, Row, Card } from "react-bootstrap";
-const Layout = lazy(() => import("../../components/layout/Layout"));
 import "./home_page.css";
+import ServiceSlider from "../../components/service_slider/ServiceSlider";
+const Layout = lazy(() => import("../../components/layout/Layout"));
+import Testimonial from "../../components/testimonial/Testimonial";
 import HomeBanner from "../../components/home_banner/HomeBanner";
 import TaskSteps from "../../components/task_steps/TaskSteps";
-import Testimonial from "../../components/testimonial/Testimonial";
-import PostFirstTask from "../../components/post_first_task/PostFirstTask";
+import { Container } from "react-bootstrap";
 const HomePage = () => {
   return (
     <Layout>
@@ -13,7 +13,7 @@ const HomePage = () => {
         {/* HOME PAGE BANNER SECTION START HERE */}
         <HomeBanner />
         {/* POST YOUR FIRST TASK SECTION START HERE */}
-        <PostFirstTask />
+        <ServiceSlider />
         {/* POST YOUR FIRST_TASK_STEPS START HERE */}
         <TaskSteps />
         {/* TESTIMONIAL SECTION START HERE */}

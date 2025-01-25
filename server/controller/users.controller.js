@@ -99,26 +99,72 @@ class UserController {
     const { token } = req.body;
 
     try {
-      // Verify token using Google API
+      // Verify the token using Google's OAuth client
       const ticket = await client.verifyIdToken({
         idToken: token,
         audience: process.env.GOOGLE_CLIENT_ID,
       });
-      // Get user profile information from token
-      const payload = ticket.getPayload();
-      console.log("User Info:", payload);
 
-      // Send user info to frontend
-      res.status(200).json({
-        message: "Login successful",
-        user: {
-          email: payload.email,
-          name: payload.name,
-          picture: payload.picture,
-        },
+      // user details from the token
+      const payload = ticket.getPayload();
+
+      // if the user exists in the database
+      UserModel.find_user_by_email_model(payload.email, async (err, user) => {
+        if (err) {
+          console.error("Database error while searching for user:", err);
+          return res.status(500).json({
+            message: "Error while searching for user",
+            error: err.message,
+          });
+        }
+
+        if (!user) {
+          // If the user doesn't exist, create new user
+          const user_data = {
+            user_id: uuidv4(),
+            user_name: payload.name,
+            user_email: payload.email,
+            user_phone: "",
+            user_password: "",
+            user_role: "user",
+            user_status: "active",
+          };
+
+          UserModel.create_user_model(user_data, (err, result) => {
+            if (err) {
+              console.error("Error creating user:", err);
+              return res.status(500).json({
+                message: "Error creating new user",
+                error: err.message,
+              });
+            }
+
+            // New user created successfully
+            return res.status(201).json({
+              message: "Account created successfully",
+              user: {
+                id: user_data.user_id,
+                email: payload.email,
+                name: payload.name,
+                picture: payload.picture,
+              },
+            });
+          });
+        } else {
+          // User already exists; log them in
+          return res.status(200).json({
+            message: "Login successful",
+            user: {
+              id: user.user_id,
+              email: payload.email,
+              name: payload.name,
+              picture: payload.picture,
+            },
+          });
+        }
       });
     } catch (error) {
-      console.error("Error verifying token:", error);
+      console.error("Error verifying token:", error.message);
       return res.status(401).json({ error: "Invalid token" });
     }
   }

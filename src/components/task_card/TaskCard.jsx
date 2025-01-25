@@ -1,6 +1,7 @@
 import React from "react";
 import "./task_card.css";
 import { Avatar, Chip, Stack } from "@mui/material";
+import { OverlayTrigger, Tooltip } from "react-bootstrap";
 const TaskCard = ({
   title,
   price,
@@ -11,6 +12,7 @@ const TaskCard = ({
   status,
   author_img = false,
   author = "E",
+  author_name = "",
   onClick,
 }) => {
   return (
@@ -89,9 +91,19 @@ const TaskCard = ({
             <span className="task_card_quoto_badge">{requested} requests</span>
           </Stack>
           {author_img == true ? (
-            <Avatar src={author} />
+            <OverlayTrigger
+              placement="top"
+              overlay={<Tooltip id="tooltip-top">{author_name}</Tooltip>}
+            >
+              <Avatar className="task_card_author" src={author} />
+            </OverlayTrigger>
           ) : (
-            <Avatar className="task_card_author">{author}</Avatar>
+            <OverlayTrigger 
+              placement="top"
+              overlay={<Tooltip id="tooltip-top">{author_name}</Tooltip>}
+            >
+              <Avatar className="task_card_author" />
+            </OverlayTrigger>
           )}
         </Stack>
       </div>

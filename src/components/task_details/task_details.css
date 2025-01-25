@@ -1,42 +1,42 @@
-.task-details__body {
+.task-details_body {
   padding: 20px;
 }
 /* TASK DETAILS HEDER */
-.task-details__header {
+.task-details_header {
   background: var(--primary-color-light);
 }
 
-.task-details__header-title {
+.task-details_header-title {
   color: var(--text-color);
   font-weight: var(--font-weight-600);
 }
 
 /* TASK DETAILS TASK STATUS CHIP */
-.task-details__status {
+.task-details_status {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
   padding: 10px 0;
 }
 
-.task-details__status-chip.task-details__status-chip-open {
+.task-details_status-chip.task-details_status-chip-open {
   background: var(--primary-color);
   color: var(--text-color);
 }
-.task-details__status-chip.task-details__status-chip-assigned {
+.task-details_status-chip.task-details_status-chip-assigned {
   background: var(--primary-color-light);
   color: var(--text-color);
 }
-.task-details__status-chip.task-details__status-chip-completed {
+.task-details_status-chip.task-details_status-chip-completed {
   background: var(--background-dark);
   color: var(--text-color);
 }
-.task-details__status-chip.task-details__status-chip-canceled {
+.task-details_status-chip.task-details_status-chip-canceled {
   background: var(--error-color);
   color: var(--text-color);
 }
 /* TASK DETAILS CARD */
-.task-details__card {
+.task-details_card {
   background-color: var(--background-color);
   box-shadow: var(--box-shadow-medium);
   border: 1px solid var(--text-color);
@@ -48,16 +48,16 @@
   padding: 20px;
 }
 /* TASK DETAILS CARD RIGHT */
-.task-details__card .task-details__card-right {
+.task-details_card .task-details_card-right {
   padding: 10px;
 }
-.task-details__card-right .task-details_posted-by {
+.task-details_card-right .task-details_posted-by {
   text-transform: capitalize;
   font-size: var(--font-size-small);
   color: var(--primary-color);
   text-align: center;
 }
-.task-details__card-right .task-details__author-avatar {
+.task-details_card-right .task-details_author-avatar {
   padding: 5px;
   width: 70px;
   height: 70px;
@@ -65,29 +65,29 @@
   margin: auto;
   text-transform: uppercase;
 }
-.task-details__card-right .task-details__author-name {
+.task-details_card-right .task-details_author-name {
   text-transform: capitalize;
   color: var(--primary-color-light);
   font-size: var(--font-size-small);
   padding-top: 5px;
 }
 /* TASK DETAILS CARD LEFT */
-.task-details__card .task-details__card-left {
+.task-details_card .task-details_card-left {
   padding: 10px;
 }
-.task-details__card-left .task-details__budget-title {
+.task-details_card-left .task-details_budget-title {
   font-size: 0.99em;
   color: var(--primary-color);
   font-weight: var(--font-weight-500);
 }
 
-.task-details__card-left .task-details__price {
+.task-details_card-left .task-details_price {
   font-weight: var(--font-weight-bold);
   color: var(--primary-color);
   margin: 10px 0;
 }
 
-.task-details__card-left .task-details__offer-btn {
+.task-details_card-left .task-details_offer-btn {
   border: none;
   background-color: var(--primary-color);
   border-color: var(--primary-color);
@@ -97,54 +97,54 @@
   color: var(--text-color);
   text-transform: capitalize;
 }
-.task-details__card-left .task-details__offer-btn:hover {
+.task-details_card-left .task-details_offer-btn:hover {
   background-color: var(--primary-color-light);
 }
 /* TASK DETAILS IFORMATION */
-.task-details__info {
+.task-details_info {
   margin-top: 20px;
 }
 
-.task-details__info .task-details__title {
+.task-details_info .task-details_title {
   color: var(--primary-color);
   font-weight: var(--font-weight-600);
   text-transform: capitalize;
   padding: 10px 0;
   font-size: var(--font-size-xxl);
 }
-.task-details__info .task-details__date-location {
+.task-details_info .task-details_date-location {
   display: flex;
   justify-content: space-between;
   gap: 5px;
   padding-top: 10px;
 }
-.task-details__info .task-details__location-title {
+.task-details_info .task-details_location-title {
   text-transform: capitalize;
   font-weight: var(--font-weight-regular);
   font-size: var(--font-size-small);
   color: var(--primary-color);
   margin: 0;
 }
-.task-details__info .task-details__location {
+.task-details_info .task-details_location {
   color: var(--primary-color);
   font-weight: var(--font-weight-bold);
   text-transform: capitalize;
   font-size: var(--font-size-small);
 }
-.task-details__info .task-details__start-title {
+.task-details_info .task-details_start-title {
   text-transform: capitalize;
   font-weight: var(--font-weight-regular);
   margin: 0;
   color: var(--primary-color);
   font-size: var(--font-size-small);
 }
-.task-details__info .task-details__start-date {
+.task-details_info .task-details_start-date {
   color: var(--primary-color);
   font-weight: var(--font-weight-bold);
   text-transform: capitalize;
   font-size: var(--font-size-small);
 }
-.task-details__info .task-details__post-task-btn {
+.task-details_info .task-details_post-task-btn {
   border: none;
   background-color: var(--primary-color);
   border-color: var(--primary-color);
@@ -154,20 +154,20 @@
   color: var(--text-color);
   text-transform: capitalize;
 }
-.task-details__info .task-details__post-task-btn:hover {
+.task-details_info .task-details_post-task-btn:hover {
   background-color: var(--primary-color-light);
 }
 /* TASK DETAILS TAGS */
-.task-details__tags {
+.task-details_tags {
   padding: 0;
 }
-.task-details__tags .task-details__tags-title {
+.task-details_tags .task-details_tags-title {
   text-transform: capitalize;
   font-size: var(--font-size-small);
   color: var(--primary-color);
   font-weight: var(--font-weight-500);
 }
-.task-details__tags .task-details__tag {
+.task-details_tags .task-details_tag {
   text-transform: capitalize;
   font-size: var(--font-size-small);
   color: var(--text-color);
@@ -178,17 +178,17 @@
   padding: 2px;
 }
 /* TASK DETAILS CONTENT */
-.task-details__content {
+.task-details_content {
   margin-top: 10px;
 }
-.task-details__content .task-details__content-title {
+.task-details_content .task-details_content-title {
   color: var(--primary-color);
   font-weight: var(--font-weight-600);
   text-transform: capitalize;
   padding: 10px 0;
   font-size: var(--font-size-xxl);
 }
-.task-details__content .task-details__content-text {
+.task-details_content .task-details_content-text {
   text-transform: capitalize;
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-600);
@@ -199,26 +199,26 @@
 /* TASK DETAILS RESPONSIVE */
 @media (max-width: 320px) {
   /* TASK DETAILS TASK AUTHOR */
-  .task-details__card-right .task-details__author-avatar {
+  .task-details_card-right .task-details_author-avatar {
     width: 40px;
     height: 40px;
   }
   /* TASK DETAILS DATE TIME WRAPPER */
-  .task-details__info .task-details__date-location {
+  .task-details_info .task-details_date-location {
     display: grid;
     gap: 5px;
     justify-content: space-between;
     margin-bottom: 20px;
   }
   /* TASK DETAILS STATUS CHIP */
-  .task-details__status {
+  .task-details_status {
     grid-template-columns: repeat(3, 1fr);
   }
   /* TASK DETAILS HEAD CARD */
   .task_details_head_card {
     margin: 10px 0;
   }
-  .task-details__card-left .task-details__offer-btn {
+  .task-details_card-left .task-details_offer-btn {
     padding: 8px;
     font-size: var(--font-size-small);
     font-weight: 100;
