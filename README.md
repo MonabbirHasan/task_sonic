@@ -32,11 +32,14 @@ Make sure you have the following installed on your system:
 - **Node.js** (latest stable version)
 - **MySQL database**
 
-task_sonic
+
+ **directory structure:**
+ ```bash
+   task_sonic
 ├── server
 │   ├── config>config.js
 │   ├── controllers
-│   └── database
+│   └── database?task_sonic
 │   └── middleware
 │   └── models
 │   └── public
@@ -55,6 +58,8 @@ task_sonic
 │   │   └── App.jsx
 │   │   └── main.jsx
 │   └── public
+   ```
+
 
 ### Steps
 
@@ -82,10 +87,10 @@ task_sonic
 3. **Create a `.env` file in the backend directory and add the following:**
 
    ```env
-    DB_HOST=localhost
-    DB_USER=root
-    DB_NAME=task_sonic
-    DB_PASSWORD=
+   SERVER_PORT=3000
+   CLIENT_ORIGIN=access origin
+   ACCESS_TOKEN_SECRET=past your access token secret
+   API_ACCESS_KEY=past your access key
    ```
 
 4. **Start the server:**
@@ -104,13 +109,21 @@ task_sonic
    cd ..
    ```
 
-2. **Install dependencies:**
+2.   **Create a `.env` file in the root directory and add the following:**
+
+   ```env
+   VITE_API_ACCESS_KEY=past your api access key
+   VITE_GOOGLE_CLIENT_ID=past your google auth client id
+   VITE_API_ROOT_URI=api root uri
+   ```
+
+3. **Install dependencies:**
 
    ```bash
    npm install
    ```
 
-3. **Start the project:**
+4. **Start the project:**
 
    ```bash
    npm run dev
@@ -120,7 +133,7 @@ task_sonic
 
 ## Database Setup
 
-1. **Import the database schema into your MySQL database:**
+1. **Import database file into your phpmyadmin database:**
 
    ```bash
    task_sonic.sql
