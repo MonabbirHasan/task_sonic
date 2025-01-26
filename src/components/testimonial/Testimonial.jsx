@@ -3,6 +3,9 @@ import Carousel from "react-multi-carousel";
 import "./testimonial.css";
 import { testimonial_data } from "../../utils/testimonial_data";
 const Testimonial = () => {
+  /////////////////////////////
+  // slider responsive code
+  ////////////////////////////
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
@@ -11,7 +14,7 @@ const Testimonial = () => {
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
-      items: 2,
+      items: 1,
       slidesToSlide: 2,
     },
     mobile: {
@@ -24,6 +27,7 @@ const Testimonial = () => {
   return (
     <section id="testimonial">
       <h2 className="testimonial_title">What Our Clients Say</h2>
+      {/* REACT MULTI CAROUSEL SLIDER START HERE */}
       <Carousel
         responsive={responsive}
         infinite={true}

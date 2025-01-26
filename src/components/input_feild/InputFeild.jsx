@@ -10,8 +10,7 @@ const InputFeild = ({
   className,
   fullWidth,
   label,
-  as,
-  rows,
+  multiline,
   error,
 }) => {
   return (
@@ -24,10 +23,9 @@ const InputFeild = ({
           className={className}
           type={type}
           placeholder={placeholder}
-          // as={as}
-          // rows={rows}
           variant="filled"
           size="small"
+          multiline={multiline}
         />
         {/* <Form.Control
         

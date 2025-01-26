@@ -1,5 +1,5 @@
 const mysql = require("mysql2");
-
+// DATABASE CONFIGURATION
 const config = {
   host: "localhost",
   user: "root",
@@ -10,7 +10,7 @@ const config = {
 };
 
 const pool = mysql.createPool(config);
-
+// CREATE CONNECTION
 pool.getConnection((err, connection) => {
   if (err) {
     console.error("Failed to connect to the database:", err.code);
@@ -35,12 +35,12 @@ pool.getConnection((err, connection) => {
         console.error("An unknown error occurred:", err.message);
     }
 
-    // Exit the process on failure
+    // EXIT THE PROCCESS IF FAILER
     process.exit(1);
   } else {
     console.log("Database connected successfully.");
 
-    // Release the connection
+    // RELEASE CONNECTION
     connection.release();
   }
 });

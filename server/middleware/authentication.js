@@ -21,7 +21,7 @@ module.exports = (req, res, next) => {
       res.status(401).json({ message: "Unauthorized - Invalid API key" });
     }
   } else {
-    // If neither token nor API key is provided, send a 401 Unauthorized response
+    // If API key IS NOT provided, send a 401 Unauthorized response
     res
       .status(401)
       .json({ message: "Unauthorized - Token or API key not provided" });

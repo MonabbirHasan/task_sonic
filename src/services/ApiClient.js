@@ -3,6 +3,7 @@ class ApiClient {
   constructor(baseApiUrl) {
     this.baseApiUrl = baseApiUrl;
   }
+
   ///////////////////////
   // CREATE DATA METHOD
   ///////////////////////
@@ -14,6 +15,7 @@ class ApiClient {
     });
     return response;
   }
+
   /////////////////////
   // READ DATA METHOD
   /////////////////////
@@ -25,6 +27,7 @@ class ApiClient {
     });
     return response;
   }
+
   ///////////////////////
   // UPDATE DATA METHOD
   ///////////////////////
@@ -36,6 +39,7 @@ class ApiClient {
     });
     return response;
   }
+
   ///////////////////////
   // DELETE DATA METHOD
   ///////////////////////

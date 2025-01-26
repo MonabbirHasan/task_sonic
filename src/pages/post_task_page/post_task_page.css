@@ -53,11 +53,3 @@
   color: var(--primary-color);
   margin: 0;
 }
-/* TASK DETAILS RESPONSIVE */
-@media (max-width: 320px) {
-  .task_form_date_wrapper .task_form_date_btn {
-    padding: 5px;
-    font-size: var(--font-size-small);
-    width: 100px;
-  }
-}

@@ -37,7 +37,7 @@ header .auth_btn {
   text-transform: capitalize;
   color: var(--text-color);
   border-radius: 30px;
-  transition: .3s;
+  transition: 0.3s;
 }
 header .auth_btn:hover {
   background-color: var(--background-color);

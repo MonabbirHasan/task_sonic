@@ -1,0 +1,140 @@
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  /*******************************
+    ** HEADER  COMPONENT 
+    ********************************/
+  header a {
+    margin-bottom: 10px;
+  }
+  .auth_btn {
+    width: 100% !important;
+  }
+  /*******************************
+    ** HOME BANNER COMPONENT 
+    ********************************/
+  #home_banner {
+    padding: 0 !important;
+  }
+  #home_banner .home_banner_left .home_banner_left_title {
+    font-size: var(--font-size-xxl);
+  }
+  /*******************************
+    ** TASK STEPS COMPONENT 
+    ********************************/
+  #task_steps .task_steps_title {
+    font-size: var(--font-size-xxl) !important;
+  }
+  #task_steps .steps_item .steps_item_title {
+    font-size: var(--font-size-base);
+  }
+  #task_steps .steps_item .steps_item_subtitle {
+    text-align: center;
+    color: var(--primary-color);
+    font-size: var(--font-size-small);
+  }
+  /*******************************
+    ** TESTIMONIAL COMPONENT 
+    ********************************/
+  #testimonial {
+    padding: 5px !important;
+  }
+  #testimonial .testimonial_title {
+    font-size: var(--font-size-xxl);
+    padding-bottom: 10px;
+  }
+  /*******************************
+    ** POST TASK PAGE 
+    ********************************/
+  .task_form_date_wrapper .task_form_date_btn {
+    padding: 5px;
+    font-size: var(--font-size-small);
+    width: 100px;
+  }
+  /*******************************
+    ** SERVICE SLIDER COMPONENT 
+    ********************************/
+  /* service_slider_left */
+  #service_slider .service_slider_left h1 {
+    font-size: var(--font-size-xxl);
+  }
+  /* service_slider_right */
+  .service_slider_right .service_slider_img_wrapper .image_slider.right {
+    display: none;
+  }
+  /* service_slider_left */
+  .service_slider_left {
+    text-align: center;
+  }
+
+  .service_slider_left h1 {
+    font-size: 1.5rem;
+  }
+
+  .service_slider_left p {
+    font-size: 0.9rem;
+  }
+  /* service_slider_img_wrapper */
+  .service_slider_img_wrapper {
+    padding: 10px;
+  }
+  /* image_slider */
+  .image_slider {
+    flex-direction: column;
+    align-items: center;
+  }
+  /* image_slider */
+  .image_items {
+    padding: 8px;
+    font-size: 0.85rem;
+  }
+}
+
+/* Smartphones (landscape) ----------- */
+@media only screen and (min-width: 321px) {
+  /* STYLES GO HERE */
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen and (max-width: 320px) {
+  /* STYLES GO HERE */
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  /* STYLES GO HERE */
+}
+
+/* iPads (landscape) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  /* STYLES GO HERE */
+}
+
+/* iPads (portrait) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+  /* STYLES GO HERE */
+}
+
+/* Desktops and laptops ----------- */
+@media only screen and (min-width: 1224px) {
+  /* STYLES GO HERE */
+}
+
+/* Large screens ----------- */
+@media only screen and (min-width: 1824px) {
+  /* STYLES GO HERE */
+}
+
+/* iPhone 5 (portrait & landscape)----------- */
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) {
+  /* STYLES GO HERE */
+}
+
+/* iPhone 5 (landscape)----------- */
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (orientation: landscape) {
+  /* STYLES GO HERE */
+}
+
+/* iPhone 5 (portrait)----------- */
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (orientation: portrait) {
+  /* STYLES GO HERE */
+}

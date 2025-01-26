@@ -21,6 +21,7 @@ class UserController {
       return res.status(503).json(error);
     }
   }
+  
   /////////////////////////
   // SINGLE USER CONTROLLER
   /////////////////////////
@@ -39,6 +40,7 @@ class UserController {
       return res.status(503).json(error);
     }
   }
+
   /////////////////////////
   // CREATE USER CONTROLLER
   /////////////////////////
@@ -92,6 +94,7 @@ class UserController {
       return res.status(503).json(error);
     }
   }
+
   /////////////////////////
   // LOGIN USER CONTROLLER
   /////////////////////////
@@ -168,6 +171,7 @@ class UserController {
       return res.status(401).json({ error: "Invalid token" });
     }
   }
+
   /////////////////////////
   // UPDATE USER CONTROLLER
   /////////////////////////
@@ -225,6 +229,7 @@ class UserController {
       return res.status(503).json(error);
     }
   }
+
   /////////////////////////
   // DELETE USER CONTROLLER
   /////////////////////////

@@ -75,6 +75,7 @@ const TaskDetails = ({ taskId, show, handleClose }) => {
             {/* Task Status Chips */}
             <div className="task-details_status">
               <Chip
+                size="small"
                 className={`task-details_status-chip ${
                   SingleTask.task_status === "open"
                     ? "task-details_status-chip-open"
@@ -83,28 +84,31 @@ const TaskDetails = ({ taskId, show, handleClose }) => {
                 label="Open"
               />
               <Chip
+                size="small"
                 className={`task-details_status-chip ${
                   SingleTask.task_status === "assigned"
-                    ? "task-details_status-chip--assigned"
+                    ? "task-details_status-chip-assigned"
                     : ""
                 }`}
                 label="Assigned"
               />
               <Chip
+                size="small"
                 className={`task-details_status-chip ${
                   SingleTask.task_status === "completed"
-                    ? "task-details_status-chip--completed"
+                    ? "task-details_status-chip-completed"
                     : ""
                 }`}
                 label="Completed"
               />
               <Chip
+                size="small"
                 className={`task-details_status-chip ${
-                  SingleTask.task_status === "canceled"
-                    ? "task-details_status-chip--canceled"
+                  SingleTask.task_status === "cancelled"
+                    ? "task-details_status-chip-canceled"
                     : ""
                 }`}
-                label="Canceled"
+                label="Cancelled"
               />
             </div>
 

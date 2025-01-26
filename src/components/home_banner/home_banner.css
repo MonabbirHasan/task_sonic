@@ -37,12 +37,4 @@
   height: auto;
   object-fit: cover;
 }
-/* HOME BANNER RESPONSIVE */
-@media (max-width: 320px) {
-  #home_banner {
-    padding: 0 !important;
-  }
-  #home_banner .home_banner_left .home_banner_left_title {
-    font-size: var(--font-size-xxl);
-  }
-}
+ 

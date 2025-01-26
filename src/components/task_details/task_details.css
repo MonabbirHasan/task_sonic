@@ -18,17 +18,16 @@
   gap: 10px;
   padding: 10px 0;
 }
-
 .task-details_status-chip.task-details_status-chip-open {
   background: var(--primary-color);
   color: var(--text-color);
 }
 .task-details_status-chip.task-details_status-chip-assigned {
-  background: var(--primary-color-light);
+  background: var(--secondary-color);
   color: var(--text-color);
 }
 .task-details_status-chip.task-details_status-chip-completed {
-  background: var(--background-dark);
+  background: var(--success-color);
   color: var(--text-color);
 }
 .task-details_status-chip.task-details_status-chip-canceled {
@@ -194,33 +193,4 @@
   font-weight: var(--font-weight-600);
   color: var(--primary-color);
   padding-top: 10px;
-}
-
-/* TASK DETAILS RESPONSIVE */
-@media (max-width: 320px) {
-  /* TASK DETAILS TASK AUTHOR */
-  .task-details_card-right .task-details_author-avatar {
-    width: 40px;
-    height: 40px;
-  }
-  /* TASK DETAILS DATE TIME WRAPPER */
-  .task-details_info .task-details_date-location {
-    display: grid;
-    gap: 5px;
-    justify-content: space-between;
-    margin-bottom: 20px;
-  }
-  /* TASK DETAILS STATUS CHIP */
-  .task-details_status {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  /* TASK DETAILS HEAD CARD */
-  .task_details_head_card {
-    margin: 10px 0;
-  }
-  .task-details_card-left .task-details_offer-btn {
-    padding: 8px;
-    font-size: var(--font-size-small);
-    font-weight: 100;
-  }
 }

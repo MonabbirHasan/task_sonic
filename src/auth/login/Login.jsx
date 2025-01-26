@@ -18,6 +18,7 @@ const Login = () => {
       return navigation("/");
     }
   }, [isAuthenticated]);
+
   /////////////////////////////////
   // HANLDE USER LOGIN
   /////////////////////////////////
@@ -40,12 +41,17 @@ const Login = () => {
       console.error("Login Error:", error);
     }
   };
+
   /////////////////////////////////
   // HANLDE USER LOGIN FAILED
   /////////////////////////////////
   const handleLoginFailure = () => {
     location.reload();
   };
+
+  /////////////////////////////////
+  // RENDER PAGE ELEMENTS
+  /////////////////////////////////
   return (
     <div className="login-page d-flex align-items-center justify-content-center min-vh-100 bg-light">
       <Container>

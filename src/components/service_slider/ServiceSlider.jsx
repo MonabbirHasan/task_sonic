@@ -34,7 +34,7 @@ const ServiceSlider = () => {
                 {category_data.map((items, index) => (
                   <div key={`left-${index}`} className="image_items">
                     <Stack alignItems="center" direction="row" spacing={2}>
-                      <Avatar src={items.img} />
+                      <Avatar className="image_slider_img" src={items.img} />
                       <div>
                         <h5>{items.title}</h5>
                         <small>{items.description}</small>
@@ -49,7 +49,7 @@ const ServiceSlider = () => {
                 {category_data.map((items, index) => (
                   <div key={`right-${index}`} className="image_items">
                     <Stack alignItems="center" direction="row" spacing={2}>
-                      <Avatar src={items.img} />
+                      <Avatar className="image_slider_img"  src={items.img} />
                       <div>
                         <h5>{items.title}</h5>
                         <small>{items.description}</small>

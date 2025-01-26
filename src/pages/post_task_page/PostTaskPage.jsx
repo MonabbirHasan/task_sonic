@@ -9,22 +9,19 @@ import {
   FormControl,
   TextField,
 } from "@mui/material";
+import { ArrowRightAlt, Map, MobileFriendly } from "@mui/icons-material";
 const Layout = lazy(() => import("../../components/layout/Layout"));
 import InputFeild from "../../components/input_feild/InputFeild";
 import { service_category } from "../../utils/service_category";
-import {
-  ArrowRight,
-  ArrowRightAlt,
-  Map,
-  MobileFriendly,
-} from "@mui/icons-material";
+import { AuthContext } from "../../context/AuthProvider";
 import { Container, Form } from "react-bootstrap";
 import ApiClient from "../../services/ApiClient";
+import { useNavigate } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import { toast } from "react-toastify";
 import { debounce } from "lodash";
-import { AuthContext } from "../../context/AuthProvider";
-import { useNavigate } from "react-router-dom";
+import { ThreeCircles } from "react-loader-spinner";
+import DataLoader from "../../components/loader/DataLoader";
 const PostTaskPage = () => {
   const { isAuthenticated, authUser } = useContext(AuthContext);
   const navigation = useNavigate();
@@ -48,7 +45,7 @@ const PostTaskPage = () => {
   const accessToken = import.meta.env.VITE_API_ACCESS_KEY;
 
   //////////////////////////////////////////
-  // TASK DATE SELECTION FORMATING
+  // TASK DATE SELECTION AND FORMATING
   //////////////////////////////////////////
   const handleDateSelection = (mode) => {
     setCalendarMode(mode);
@@ -70,12 +67,14 @@ const PostTaskPage = () => {
       setTags([...tags, newValue]);
     }
   };
+
   //////////////////////////////////////////
   // TASK CATEGORY TAGS REMOVING FROM ARRAY
   //////////////////////////////////////////
   const handleDeleteTag = (tagToDelete) => {
     setTags(tags.filter((tag) => tag !== tagToDelete));
   };
+
   //////////////////////////////////////////
   // FORMATE TASK CATEGORY TAGS >tag,tag
   //////////////////////////////////////////
@@ -109,6 +108,7 @@ const PostTaskPage = () => {
     // Return true if there are errors
     return Object.keys(errors).length > 0;
   };
+
   ///////////////////////////////
   // RESET ALL INPOUT FEILDS
   ///////////////////////////////
@@ -120,7 +120,9 @@ const PostTaskPage = () => {
     setTaskDetails("");
     setTaskType("");
     setTaskLocation("");
+    setTags([]);
   };
+
   ///////////////////////////////
   // HANDLE CREATE TASK
   //////////////////////////////
@@ -152,12 +154,28 @@ const PostTaskPage = () => {
       console.log(error);
     }
   };
+
   ///////////////////////////////////
   //  CREATE TASK DEBOUNCE HANDLER
   ///////////////////////////////////
   const debouncedClick = debounce(create_task, 1000);
+
+  if (loader) {
+    return (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          minHeight: "100vh",
+        }}
+      >
+        <DataLoader width={200} height={100} />
+      </div>
+    );
+  }
   ///////////////////////////////
-  // RENDER ALL JSX HERE
+  // RENDER PAGE ELEMENTS
   //////////////////////////////
   return (
     <Layout>
@@ -182,6 +200,7 @@ const PostTaskPage = () => {
                 label={"In a few words, what do you need done?"}
                 onChange={(e) => setTaskType(e.target.value)}
                 value={TaskType}
+                multiline={false}
                 className="post_task_form_input"
                 type="text"
                 placeholder="e.g help me to move my studio"
@@ -306,6 +325,7 @@ const PostTaskPage = () => {
               {isLocation == "in-person" && (
                 <InputFeild
                   fullWidth={true}
+                  multiline={false}
                   label={"Where do you need this done?"}
                   onChange={(e) => setTaskLocation(e.target.value)}
                   value={TaskLocation}
@@ -322,6 +342,7 @@ const PostTaskPage = () => {
                 label={
                   "What is your budget? You can always negotiate the final price."
                 }
+                multiline={false}
                 onChange={(e) => setTaskBudget(e.target.value)}
                 value={TaskBudget}
                 className="post_task_form_input"
@@ -344,6 +365,7 @@ const PostTaskPage = () => {
                         variant="filled"
                         className="form-control outlined-0"
                         size="small"
+                        multiline={false}
                         {...params}
                         type="text"
                         placeholder="Add Service Tags"
@@ -372,8 +394,7 @@ const PostTaskPage = () => {
                 value={TaskDetails}
                 className="post_task_form_input"
                 type="text"
-                as="textarea"
-                rows={4}
+                multiline={true}
                 placeholder="Write a summary of the key details"
               />
 

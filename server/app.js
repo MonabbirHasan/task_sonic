@@ -11,6 +11,7 @@ const app = express();
 //////////////////////////////
 const user_router = require("./routes/users.routes");
 const task_router = require("./routes/task.routes");
+
 //////////////////////////////
 // MIDDLEWARE CONFIGURATION
 //////////////////////////////
@@ -23,6 +24,7 @@ app.use(
     credentials: true,
   })
 );
+
 //////////////////////////
 // DEFINE ALL ROUTE HERE
 //////////////////////////
@@ -31,6 +33,7 @@ app.get("/", (req, res) => {
 });
 app.use("/api/users", user_router);
 app.use("/api/tasks", task_router);
+
 ////////////////////////
 // ROUTE ERROR HANLDER
 ////////////////////////
@@ -38,12 +41,15 @@ app.use((req, res) => {
   res.status(404).json({ message: "This Route Is Not Found!" });
 });
 
+////////////////////////
+// SERVER ERROR HANLDER
+////////////////////////
 app.use((err, req, res, next) => {
   console.error("Unhandled Error:", err.message);
   res.status(500).json({ message: "Something Broke!", error: err.message });
 });
+
 /////////////////////////////////////
 // EXPORT APP FOR USE IN INDEX.JS
 /////////////////////////////////////
-
 module.exports = app;

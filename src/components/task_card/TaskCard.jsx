@@ -2,7 +2,7 @@ import React from "react";
 import "./task_card.css";
 import { Avatar, Chip, Stack } from "@mui/material";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
-const TaskCard = ({
+ const TaskCard = ({
   title,
   price,
   location,
@@ -79,15 +79,15 @@ const TaskCard = ({
                 background:
                   status == "open"
                     ? "var(--primary-color)"
-                    : status == "assign"
+                    : status == "assigned"
                     ? "var(--secondary-color)"
-                    : status == "complete"
+                    : status == "completed"
                     ? "var(--success-color)"
                     : "var(--error-color)",
               }}
               label={status}
             />
-            <span></span>
+            <span>•</span>
             <span className="task_card_quoto_badge">{requested} requests</span>
           </Stack>
           {author_img == true ? (
@@ -98,7 +98,7 @@ const TaskCard = ({
               <Avatar className="task_card_author" src={author} />
             </OverlayTrigger>
           ) : (
-            <OverlayTrigger 
+            <OverlayTrigger
               placement="top"
               overlay={<Tooltip id="tooltip-top">{author_name}</Tooltip>}
             >

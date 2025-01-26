@@ -13,13 +13,21 @@ import "slick-carousel/slick/slick-theme.css";
 import "react-multi-carousel/lib/styles.css";
 import "slick-carousel/slick/slick.css";
 import "@fontsource/roboto/400.css";
+import "./styles/responsive.css";
 import "./styles/variables.css";
 function App() {
   return (
     <Suspense
       fallback={() => (
-        <div>
-          <ThreeDots width={100} height={50} color="var(--primary-color)" />
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "100vh",
+          }}
+        >
+          <ThreeDots width={100} height={100} color="var(--primary-color)" />
         </div>
       )}
     >

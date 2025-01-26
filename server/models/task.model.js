@@ -4,9 +4,10 @@ class TaskModel {
   // ALL TASK MODEL
   ////////////////////
   static all_task_model(callback) {
-    const sql = "SELECT * FROM tasks";
+    const sql = "SELECT t.*, u.user_name FROM tasks AS t JOIN users AS u ON t.user_id = u.user_id WHERE u.user_id=t.user_id";
     db.query(sql, callback);
   }
+
   ///////////////////////
   // SINGLE TASK MODEL
   //////////////////////
@@ -21,6 +22,7 @@ class TaskModel {
       }
     });
   }
+
   ///////////////////////////
   // SINGLE USER TASK MODEL
   //////////////////////////
@@ -28,6 +30,7 @@ class TaskModel {
     const sql = `SELECT t.*, u.user_name, u.user_role, u.user_status, u.user_id FROM tasks AS t JOIN users AS u ON t.user_id = u.user_id WHERE u.user_id = ?`;
     db.query(sql, [user_id], callback);
   }
+
   ///////////////////////
   // CREATE TASK MODEL
   //////////////////////
@@ -35,6 +38,7 @@ class TaskModel {
     const sql = "INSERT INTO tasks SET?";
     db.query(sql, data, callback);
   }
+
   ///////////////////////
   // UPDATE TASK MODEL
   //////////////////////
@@ -42,6 +46,7 @@ class TaskModel {
     const sql = "UPDATE tasks SET? WHERE task_id=?";
     db.query(sql, [data, task_id], callback);
   }
+
   //////////////////////////////
   // UPDATE TASK STATUS MODEL
   //////////////////////////////
@@ -49,6 +54,7 @@ class TaskModel {
     const sql = "UPDATE tasks SET task_status=? WHERE task_id=?";
     db.query(sql, [task_status, task_id], callback);
   }
+  
   ///////////////////////
   // DELETE TASK MODEL
   //////////////////////

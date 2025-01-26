@@ -20,6 +20,7 @@ class TaskController {
       return res.status(503).json(error);
     }
   }
+
   ////////////////////////////
   // SINGLE TASK CONTROLLER
   ////////////////////////////
@@ -38,6 +39,7 @@ class TaskController {
       return res.status(503).json(error);
     }
   }
+
   ////////////////////////////
   // USER TASK CONTROLLER
   ////////////////////////////
@@ -56,6 +58,7 @@ class TaskController {
       return res.status(503).json(error);
     }
   }
+  
   ////////////////////////////
   // CREATE TASK CONTROLLER
   ////////////////////////////
@@ -100,6 +103,7 @@ class TaskController {
       return res.status(503).json(error);
     }
   }
+
   ////////////////////////////
   // UPDATE TASK CONTROLLER
   ////////////////////////////
@@ -146,6 +150,7 @@ class TaskController {
       return res.status(503).json(error);
     }
   }
+
   ////////////////////////////////
   // UPDATE TASK STATUS CONTROLLER
   //////////////////////////////////
@@ -186,6 +191,7 @@ class TaskController {
       return res.status(503).json(error);
     }
   }
+
   ////////////////////////////
   // DELETE TASK CONTROLLER
   ////////////////////////////

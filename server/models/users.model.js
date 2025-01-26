@@ -7,6 +7,7 @@ class UserModel {
     const sql = "SELECT * FROM users";
     db.query(sql, callback);
   }
+
   /////////////////////////
   //SINGLE USER MODEL
   /////////////////////////
@@ -21,6 +22,7 @@ class UserModel {
       }
     });
   }
+
   ///////////////////////////
   //FIND USER BY EMAIL MODEL
   ///////////////////////////
@@ -35,6 +37,7 @@ class UserModel {
       }
     });
   }
+
   /////////////////////////
   // CREATE USER MODEL
   /////////////////////////
@@ -42,6 +45,7 @@ class UserModel {
     const sql = "INSERT INTO users SET?";
     db.query(sql, data, callback);
   }
+
   /////////////////////////
   // UPDATE USER MODEL
   /////////////////////////
@@ -49,6 +53,7 @@ class UserModel {
     const sql = "UPDATE users SET? WHERE user_id=?";
     db.query(sql, [data, user_id], callback);
   }
+  
   /////////////////////////
   // DELETE USER MODEL
   /////////////////////////

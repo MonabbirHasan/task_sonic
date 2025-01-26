@@ -1,62 +1,54 @@
-#home_task_steps {
+#task_steps {
   padding: 60px;
   background-color: var(--background-color);
   border-radius: 5px;
 }
-#home_task_steps .home_task_steps_title {
-  text-align: center;
-  text-transform: capitalize;
-  color: var(--primary-color);
-  font-weight: var(--font-weight-bold);
-  font-size: var(--font-size-xxxl);
-}
-#home_task_steps .home_task_steps_subtitle {
-  text-align: center;
-  text-transform: capitalize;
-  padding-bottom: 30px;
-}
-#home_task_steps .steps_item {
+/* STEPS CARD */
+#task_steps .steps_item {
   padding: 10px;
   transition: 0.5s ease-in-out;
   border-radius: 10px;
   cursor: pointer;
   border: 1px solid var(--text-color);
 }
-#home_task_steps .steps_item:hover {
+#task_steps .steps_item:hover {
   background-color: var(--background-color);
   box-shadow: var(--box-shadow-medium);
 }
-#home_task_steps .steps_item .steps_item_icon {
+/* STEPS SECTION TITLE */
+#task_steps .task_steps_title {
+  text-align: center;
+  text-transform: capitalize;
+  color: var(--primary-color);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-xxxl);
+}
+/* STEPS SECTION TITLE */
+#task_steps .task_steps_subtitle {
+  text-align: center;
+  text-transform: capitalize;
+  padding-bottom: 30px;
+}
+/* STEPS CARD ICON */
+#task_steps .steps_item .steps_item_icon {
   text-align: center;
   margin: auto;
   padding-bottom: 10px;
 }
-#home_task_steps .steps_item .steps_item_icon svg {
+#task_steps .steps_item .steps_item_icon svg {
   font-size: var(--font-size-xxxl);
   color: var(--primary-color);
 }
-#home_task_steps .steps_item .steps_item_title {
+/* STEPS CARD TITLE */
+#task_steps .steps_item .steps_item_title {
   color: var(--primary-color);
   text-align: center;
   text-transform: capitalize;
   font-size: var(--font-size-xxl);
 }
-#home_task_steps .steps_item .steps_item_subtitle {
+/* STEPS CARD SUBTITLE CARD  */
+#task_steps .steps_item .steps_item_subtitle {
   text-align: center;
   color: var(--primary-color);
   font-size: var(--font-size-base);
-}
-/* TESTIMONIALS RESPONSIVE */
-@media (max-width: 320px) {
-  #home_task_steps .home_task_steps_title {
-    font-size: var(--font-size-xxl);
-  }
-  #home_task_steps .steps_item .steps_item_title {
-    font-size: var(--font-size-large);
-  }
-  #home_task_steps .steps_item .steps_item_subtitle {
-    text-align: center;
-    color: var(--primary-color);
-    font-size: var(--font-size-base);
-  }
 }

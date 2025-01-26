@@ -41,9 +41,9 @@ const BrowseTaskPage = () => {
     fetch_tasks();
     
   }, []);
-  //////////////////////
-  // RENDER ALL JSX
-  //////////////////////
+  /////////////////////////
+  // RENDER PAGE LEMENTS
+  /////////////////////////
   return (
     <Layout>
       <div className="browse_task_page">
@@ -53,9 +53,9 @@ const BrowseTaskPage = () => {
           ) : (
             // SHOW ALL TASK SECTION START
             <section id="browse_task">
-              <Row lg={3}>
+              <Row lg={3} className="g-4">
                 {AllTask.map((items, index) => (
-                  <Col key={index}>
+                  <Col key={index} xs={12} sm={6} md={4}>
                     <TaskCard
                       onClick={() => {
                         setTaskId(items.task_id);
@@ -70,7 +70,7 @@ const BrowseTaskPage = () => {
                       status={items.task_status}
                       author_img={items?.user_id==authUser?.id?true:false}
                       author={items?.user_id==authUser?.id?authUser?.picture:""}
-                      author_name={items?.user_id==authUser?.id?authUser?.name:"unknown"}
+                      author_name={items?.user_id==authUser?.id?authUser?.name:items?.user_name}
                     />
                   </Col>
                 ))}
